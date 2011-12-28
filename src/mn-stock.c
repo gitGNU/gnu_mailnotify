@@ -32,11 +32,11 @@ mn_stock_init (void)
     const char	*icon_name;
     const char	*source_stock_id;
   } icons[] = {
-    { MN_STOCK_MAIL,			NULL, "stock_mail" },
-    { MN_STOCK_NO_MAIL,			NULL, "stock_inbox" },
+    { MN_STOCK_MAIL,			NULL, "mail-notification" },
+    { MN_STOCK_NO_MAIL,			NULL, "mail-notification" },
     { MN_STOCK_LOCAL,			NULL, "stock_folder" },
     { MN_STOCK_REMOTE,			NULL, "stock_internet" },
-    { MN_STOCK_UNKNOWN,			NULL, "stock_unknown" },
+    { MN_STOCK_UNKNOWN,			NULL, "unknown" },
     { MN_STOCK_ERROR,			NULL, NULL, GTK_STOCK_DIALOG_ERROR },
 #if WITH_GMAIL
     { MN_STOCK_GMAIL,			PKGDATADIR G_DIR_SEPARATOR_S "gmail.png" },
@@ -53,9 +53,9 @@ mn_stock_init (void)
 #if WITH_EVOLUTION
     { MN_STOCK_EVOLUTION_MAILBOX,	NULL, "evolution" },
 #endif
-    { MN_STOCK_MAIL_READER,		NULL, "stock_mail-handling" },
+    { MN_STOCK_MAIL_READER,		NULL, "stock_mail-compose" },
     { MN_STOCK_OPEN_MESSAGE,		NULL, "stock_mail-open" },
-    { MN_STOCK_CONSIDER_NEW_MAIL_AS_READ, NULL, "stock_mark" }
+    { MN_STOCK_CONSIDER_NEW_MAIL_AS_READ, NULL, "mail-mark-read" }
   };
   GtkIconFactory *factory;
   GtkIconTheme *icon_theme;
