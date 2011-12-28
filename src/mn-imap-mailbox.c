@@ -1646,7 +1646,12 @@ mn_imap_mailbox_response_new_cb (MNClientSession * session, const char * input, 
      */
     if (mn_ascii_validate(input))
       {
-	if (g_str_has_prefix(input, "+ "))
+	if (! strcmp(input, "+"))
+	  {
+	    response = g_new0(MNClientSessionResponse, 1);
+	    response->continuation = g_strdup("");
+	  }
+	else if (g_str_has_prefix(input, "+ "))
 	  {
 	    response = g_new0(MNClientSessionResponse, 1);
 	    response->continuation = g_strdup(input + 2);
