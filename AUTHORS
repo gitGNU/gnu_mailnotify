@@ -34,9 +34,12 @@ External code sources:
 	* The GNU C Library (src/mn-md5.*)
 
 External image sources (images taken as-is or slightly modified):
-	* Google (gmail.png)
 	* Yahoo! (yahoo.png)
 	* Microsoft (hotmail.png)
 
 External sound sources:
 	* Ekiga (new-mail.wav)
+
+The gmail.png included in the upstream package (created by Google)
+has been replaced by another "G", created especially for Debian, by
+Pascal Giard <evilynux@gmail.com> using The GIMP.
