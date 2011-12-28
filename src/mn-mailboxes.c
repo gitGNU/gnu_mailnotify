@@ -28,6 +28,7 @@
 #include "config.h"
 #include <unistd.h>
 #include <stdarg.h>
+#include <errno.h>
 #include <glib/gi18n.h>
 #include <libxml/parser.h>
 #include <libxml/tree.h>
