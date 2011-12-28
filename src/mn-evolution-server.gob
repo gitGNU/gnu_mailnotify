@@ -26,7 +26,7 @@
 #include <libintl.h>
 #include <gobject/gvaluecollector.h>
 #include <libedataserver/eds-version.h>
-#include <camel/camel-folder.h>
+#include <camel/camel.h>
 #if EDS_CHECK_VERSION(2,29,0)
 #include <shell/e-shell.h>
 #include <mail/e-mail-browser.h>

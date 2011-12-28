@@ -23,7 +23,7 @@
 
 %{
 #include <glib/gi18n.h>
-#include <camel/camel-folder-summary.h>
+#include <camel/camel.h>
 #include "mn-evolution-mailbox.h"
 #include "mn-message-private.h"
 #include "mn-evolution-client.h"

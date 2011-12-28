@@ -24,7 +24,7 @@
 #include <dbus/dbus.h>
 #include <dbus/dbus-glib-lowlevel.h>
 #include <dbus/dbus-glib-bindings.h>
-#include <camel/camel-folder.h>
+#include <camel/camel.h>
 #include <mail/em-event.h>
 #include <mail/mail-tools.h>
 #include "mn-evolution.h"
