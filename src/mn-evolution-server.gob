@@ -65,7 +65,7 @@ typedef enum
  * interface methods are run from a main loop callback.
  */
 
-class MN:Evolution:Server
+class MN:Evolution:Server from G:Object
 {
   signal NONE (STRING)
     void folder_changed (self, const char *uri (check null));

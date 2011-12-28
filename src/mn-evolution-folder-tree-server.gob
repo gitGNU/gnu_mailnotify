@@ -31,7 +31,7 @@
 #include "mn-evolution-folder-tree-server-dbus.h"
 %}
 
-class MN:Evolution:Folder:Tree:Server
+class MN:Evolution:Folder:Tree:Server from G:Object
 {
   /* the GdkNativeWindow, which we also use as our ID */
   private guint32 id;
