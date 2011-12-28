@@ -140,7 +140,7 @@ class MN:Base:Mbox:Mailbox:Backend from MN:VFS:Mailbox:Backend (abstract)
 	    mime_message = g_mime_parser_construct_message(parser);
 	    if (mime_message)
 	      {
-		if (g_mime_message_get_header(mime_message, "X-Mozilla-Status"))
+		if (g_mime_object_get_header(mime_message, "X-Mozilla-Status"))
 		  {
 #if WITH_MOZILLA
 		    type = MN_TYPE_MOZILLA_MAILBOX_BACKEND;

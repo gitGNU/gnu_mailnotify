@@ -69,7 +69,7 @@ class MN:Mozilla:Mailbox:Backend from MN:Base:Mbox:Mailbox:Backend
   {
     const char *header;
 
-    header = g_mime_message_get_header(mime_message, header_name);
+    header = g_mime_object_get_header(mime_message, header_name);
     if (header && mn_str_ishex(header))
       return strtol(header, NULL, 16);
     else

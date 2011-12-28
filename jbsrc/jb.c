@@ -166,7 +166,7 @@ jb_package_configure (void)
   jb_require_packages("GNOME", "gnome", "glib-2.0 >= 2.14 gthread-2.0 gconf-2.0 >= 2.4.0 gtk+-2.0 >= 2.12 libgnomeui-2.0 >= 2.14.0 gnome-vfs-2.0 libglade-2.0 libxml-2.0 libnotify >= 0.4.1");
   jb_require_packages("D-Bus", "dbus", "dbus-glib-1");
 
-  jb_check_packages_for_options("GMime", "gmime", "gmime-2.0 >= 2.2.7",
+  jb_check_packages_for_options("GMime", "gmime", "gmime-2.4",
 				"hotmail",
 				"imap",
 				"maildir",
