@@ -180,7 +180,7 @@ mn_gmail_mailbox_properties_init (MNGmailMailboxProperties * self G_GNUC_UNUSED)
 				      GTK_ENTRY(auth->password_entry),
 				      NULL);
 
-    g_signal_connect(auth->username_entry, "changed", G_CALLBACK(mn_mailbox_properties_notify_default_name), self);
+    g_signal_connect_swapped(auth->username_entry, "changed", G_CALLBACK(mn_mailbox_properties_notify_default_name), self);
   
 #line 186 "mn-gmail-mailbox-properties.c"
  }
