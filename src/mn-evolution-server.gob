@@ -27,9 +27,14 @@
 #include <gobject/gvaluecollector.h>
 #include <libedataserver/eds-version.h>
 #include <camel/camel-folder.h>
+#if EDS_CHECK_VERSION(2,29,0)
+#include <shell/e-shell.h>
+#include <mail/e-mail-browser.h>
+#else
 #include <mail/em-folder-view.h>
 #include <mail/em-format.h>
 #include <mail/em-message-browser.h>
+#endif
 #include <mail/em-utils.h>
 #include <mail/mail-session.h>
 #include <mail/mail-tools.h>
@@ -291,6 +296,19 @@ class MN:Evolution:Server from G:Object
     folder = self_lookup_folder(folder_uri, err);
     if (folder)
       {
+#if EDS_CHECK_VERSION(2,29,0)
+	EShell *shell;
+	EShellBackend *shell_backend;
+	GtkWidget *browser;
+
+	shell = e_shell_get_default();
+	shell_backend = e_shell_get_backend_by_name(shell, "mail");
+
+	browser = e_mail_browser_new(shell_backend);
+	e_mail_reader_set_folder(E_MAIL_READER(browser), folder, folder_uri);
+	e_mail_reader_set_message(E_MAIL_READER(browser), message_uid);
+	gtk_widget_show(browser);
+#else
 	GtkWidget *browser;
 
 	/* modelled after Evolution's handleuri_got_folder() */
@@ -301,6 +319,7 @@ class MN:Evolution:Server from G:Object
 	em_folder_view_set_folder((EMFolderView *) browser, folder, folder_uri);
 	em_folder_view_set_message((EMFolderView *) browser, message_uid, FALSE);
 	gtk_widget_show(((EMMessageBrowser *) browser)->window);
+#endif
 
 	camel_object_unref(folder);
       }
