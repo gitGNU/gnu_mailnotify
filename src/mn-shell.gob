@@ -356,8 +356,11 @@ class MN:Shell from G:Object
   }
 
   private void
-    init_icon (self)
+    init_icon_base (self)
   {
+    g_return_if_fail(self != NULL);
+    g_return_if_fail(MN_IS_SHELL(self));
+
     self->icon = MN_MAIL_ICON(mn_mail_icon_new());
     mn_add_weak_pointer(&self->icon);
 
@@ -373,7 +376,12 @@ class MN:Shell from G:Object
 		     "swapped-signal::activate-remove", self_quit, self,
 		     "signal::destroy", self_icon_destroy_h, self,
 		     NULL);
+  }
 
+  private void
+    init_icon (self)
+  {
+    self_init_icon_base(self);
     self_update_sensitivity(self);
     self_update_tooltip(self);
     self_update_icon(self);
@@ -561,7 +569,13 @@ class MN:Shell from G:Object
       }
     else
       {
-	gtk_widget_hide(GTK_WIDGET(self->icon));
+	/* Re-create the icon as a regular gtk_widget_hide causes the
+	 * icon to remain visible on non-GNOME environments. We can't
+	 * use the callback self_icon_destroy_h here as it can cause an
+	 * endless recursion. */
+	g_signal_handlers_disconnect_by_func(self->icon, self_icon_destroy_h, self);
+	gtk_widget_destroy(GTK_WIDGET(self->icon));
+	self_init_icon_base(self);
 	mn_mail_icon_set_blinking(self->icon, FALSE);
       }
   }
