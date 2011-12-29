@@ -1,0 +1,1996 @@
+# Lithuanian translations for mail-notification package.
+# Copyright (C) 2011 THE mail-notification'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the mail-notification package.
+# gymka <margevicius.algimantas@gmail.com>, 2011.
+# Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mail-notification 5.4.dfsg.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-12-16 14:16+0200\n"
+"PO-Revision-Date: 2011-12-18 12:44+0200\n"
+"Last-Translator: Algimantas Margevičius <margevicius.algimantas@gmail.com>\n"
+"Language-Team: Lietuvių <>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bits\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: ../data/mail-notification-properties.desktop.in.h:1
+msgid "Configure Mail Notification"
+msgstr "Konfigūruoti „Pranešimus apie paštą“"
+
+#: ../data/mail-notification-properties.desktop.in.h:2
+#: ../data/mail-notification.desktop.in.h:2 ../src/mn-mail-icon.gob:296
+#: ../src/mn-main.c:107 ../src/mn-main.c:437 ../src/mn-main.c:458
+#: ../src/mn-main.c:509
+msgid "Mail Notification"
+msgstr "Pranešimai apie paštą"
+
+#: ../data/mail-notification.desktop.in.h:1
+msgid "Get notified when new mail arrives"
+msgstr "Būkite informuoti kai gaunate naują laišką"
+
+#: ../data/mail-notification.schemas.in.in.h:1
+msgid "Always display an icon"
+msgstr "Visada rodyti piktogramą"
+
+#: ../data/mail-notification.schemas.in.in.h:2
+msgid "Blink on errors"
+msgstr "Mirksėti įvykus klaidai"
+
+#: ../data/mail-notification.schemas.in.in.h:3
+msgid "Click action"
+msgstr "Veiksmas paspaudus"
+
+#: ../data/mail-notification.schemas.in.in.h:4
+msgid "Display a message count in the status icon"
+msgstr "Būsenos piktogramoje rodyti pranešimų kiekį"
+
+#: ../data/mail-notification.schemas.in.in.h:5
+msgid "Display seen mail"
+msgstr "Rodyti skaitytą paštą"
+
+#: ../data/mail-notification.schemas.in.in.h:6
+msgid "Enable message popups"
+msgstr "Įgalinti pranešimų iššokantį langą"
+
+#: ../data/mail-notification.schemas.in.in.h:7
+msgid "Expire message popups"
+msgstr "Iššokančių pranešimo langų galiojimas"
+
+#: ../data/mail-notification.schemas.in.in.h:8
+msgid "Fallback character sets"
+msgstr "Atsarginis simbolių rinkinys"
+
+#: ../data/mail-notification.schemas.in.in.h:9
+msgid "Fingerprints of trusted X509 certificates"
+msgstr "Patikimų X509 sertifikatų piršto antspaudai"
+
+#: ../data/mail-notification.schemas.in.in.h:10
+msgid "Height of properties dialog"
+msgstr "Savybių dialogo aukštis"
+
+#: ../data/mail-notification.schemas.in.in.h:11
+msgid ""
+"If /apps/mail-notification/popups/expiration/enabled is set to \"true\", the "
+"number of seconds to wait before expiring message popups."
+msgstr ""
+"Jei /apps/mail-notification/popups/expiration/enabled nustatyta „true“, "
+"sekundžių skaičius kiek bus laukiama iki užveriant iššokantį pranešimų langą."
+
+#: ../data/mail-notification.schemas.in.in.h:12
+msgid "Mail changed command"
+msgstr "Pašto pasikeitimo komanda"
+
+#: ../data/mail-notification.schemas.in.in.h:13
+msgid "Mail read command"
+msgstr "Pašto skaitymo komanda"
+
+#: ../data/mail-notification.schemas.in.in.h:14
+msgid "Maximum number of messages in the tooltip mail summary"
+msgstr "Daugiausia pranešimų pašto santraukos paaiškinime"
+
+#: ../data/mail-notification.schemas.in.in.h:15
+msgid "Maximum number of simultaneous popups"
+msgstr "Daugiausia iššokančių langų vienu metu"
+
+#: ../data/mail-notification.schemas.in.in.h:16
+msgid "Message popups actions"
+msgstr "Pranešimo iššokančių langų veiksmai"
+
+#: ../data/mail-notification.schemas.in.in.h:17
+msgid "Message popups position"
+msgstr "Pranešimo iššokančių langų vieta"
+
+#: ../data/mail-notification.schemas.in.in.h:18
+msgid "Messages to consider as read"
+msgstr "Pranešimai laikomi perskaitytais"
+
+#: ../data/mail-notification.schemas.in.in.h:19
+msgid "New mail command"
+msgstr "Naujo laiško komanda"
+
+#: ../data/mail-notification.schemas.in.in.h:20
+msgid "New mail sound"
+msgstr "Naujo laiško garsas"
+
+#: ../data/mail-notification.schemas.in.in.h:21
+msgid "Play a sound when new mail arrives"
+msgstr "Groti garsą gavus naują laišką"
+
+#: ../data/mail-notification.schemas.in.in.h:22
+msgid "Play sound command"
+msgstr "Garso grojimo komanda"
+
+#: ../data/mail-notification.schemas.in.in.h:23
+msgid "Run a command when all mail is read"
+msgstr "Kai visi laiškai perskaityti vykdyti komandą"
+
+#: ../data/mail-notification.schemas.in.in.h:24
+msgid "Run a command when new mail arrives"
+msgstr "Gavus naują laišką vykdyti komandą"
+
+#: ../data/mail-notification.schemas.in.in.h:25
+msgid "Run a command when the message list changes"
+msgstr "Pasikeitus pranešimų sąrašui vykdyti komandą"
+
+#: ../data/mail-notification.schemas.in.in.h:26
+msgid "Seconds to wait before expiring message popups"
+msgstr "Laukti sekundes, prieš užveriant iššokantį pranešimo langą"
+
+#: ../data/mail-notification.schemas.in.in.h:27
+msgid ""
+"The action to perform when the icon is clicked. Must be \"launch-mail-reader"
+"\", \"open-latest-message\", \"consider-new-mail-as-read\" or \"update-mail-"
+"status\"."
+msgstr ""
+"Veiksmas kurį atlikti, kai paspaudžiama ant piktogramos. Turi būti „launch-"
+"mail-reader“, \"open-latest-message\", \"consider-new-mail-as-read\" arba "
+"\"update-mail-status\"."
+
+#: ../data/mail-notification.schemas.in.in.h:28
+msgid "The command to run when all mail is read."
+msgstr "Kai visi laiškai perskaitomi vykdyti komandą."
+
+#: ../data/mail-notification.schemas.in.in.h:29
+msgid "The command to run when new mail arrives."
+msgstr "Gavus naują laišką vykdyti komandą."
+
+#: ../data/mail-notification.schemas.in.in.h:30
+msgid "The command to run when the message list changes."
+msgstr "Pasikeitus laiškų sąrašui vykdyti komandą."
+
+#: ../data/mail-notification.schemas.in.in.h:32
+#, no-c-format
+msgid ""
+"The command to use to play a sound file. The string %file will be "
+"substituted with the filename of the sound to play."
+msgstr ""
+"Komanda kuri naudojama atkurti garso failą. Eilutė %file bus pakeista "
+"grojamo garso failo vardu."
+
+#: ../data/mail-notification.schemas.in.in.h:33
+msgid "The height of the properties dialog in pixels."
+msgstr "Savybių dialogo aukštis pikseliais."
+
+#: ../data/mail-notification.schemas.in.in.h:34
+msgid ""
+"The list of character sets to attempt conversion from when uncompliant 8-bit "
+"data is encountered in message headers. The first character set allowing a "
+"successful conversion will be used. The special name \"user\" will be "
+"replaced with the character set of the user's locale. Note that Mail "
+"Notification must be restarted for changes to take effect."
+msgstr ""
+"Kai pranešimo antraštėje randama simbolių nesuderinamų su 8-bitų duomenimis, "
+"bus bandoma konvertuoti naudojant simbolių rinkinių sąrašą. Bus naudojamas "
+"pirmas simbolis kuris sėkmingai konvertuosis. Specialus vardas „naudotojas“ "
+"bus pakeistas simbolių rinkiniu iš naudotojo kalbos. Turėkite omeny jog "
+"pakeitimams įsigalioti, „Pranešimai apie paštą“ turi būti paleistas iš naujo."
+
+#: ../data/mail-notification.schemas.in.in.h:35
+msgid "The list of messages to consider as read and ignore."
+msgstr "Pranešimų sąrašas kurie bus laikomi perskaitytais ir nepaisomi."
+
+#: ../data/mail-notification.schemas.in.in.h:36
+msgid ""
+"The list of trusted SSL/TLS servers (hostname:port) lacking a X509 "
+"certificate."
+msgstr ""
+"Patikimų SSl/TLS serverių (kompiuterio_vardas:prievadas) kurie neturi X509 "
+"sertifikato sąrašas"
+
+#: ../data/mail-notification.schemas.in.in.h:37
+msgid ""
+"The list of trusted X509 certificates, represented by their MD5 fingerprint."
+msgstr ""
+"Patikimų X509 sertifikatų sąrašas, atvaizduojamas pagal jų MD5 piršto "
+"antspaudą."
+
+#: ../data/mail-notification.schemas.in.in.h:38
+msgid "The maximum number of messages to display in the tooltip mail summary."
+msgstr "Daugiausia pranešimų pašto santraukos aprašyme."
+
+#: ../data/mail-notification.schemas.in.in.h:39
+msgid ""
+"The maximum number of popups to display simultaneously. If this limit is "
+"exceeded, only the most recent messages will be displayed. If the /apps/mail-"
+"notification/popups/position key is set to \"attached\", this limit will be "
+"ignored and only one popup will be allowed."
+msgstr ""
+"Daugiausia kartu rodoma iššokančių langų. Jei šis limitas viršytas, bus "
+"rodomi tik naujausi laiškai. Jei /apps/mail-notification/popups/position "
+"raktas nustatytas \"attached\", šis limitas bus nepaisomas ir bus rodomas "
+"tik vienas iššokantis langas."
+
+#: ../data/mail-notification.schemas.in.in.h:40
+msgid ""
+"The ordered list of actions to include in the message popups. Each element "
+"must be \"open\", \"mark-as-read\", \"mark-as-spam\" or \"delete\"."
+msgstr ""
+"Pasirinktų veiksmų sąrašas kurie bus įtraukiami į iššokančius langus. "
+"Kiekvienas elementas turi būti „atverti“, „pažymėti kaip skaitytą“ ar "
+"„ištrinti“."
+
+#: ../data/mail-notification.schemas.in.in.h:41
+msgid "The position of the message popups. Must be \"attached\" or \"free\"."
+msgstr "Iššokančių langų vieta. Turi būti „attached“ arba „free“."
+
+#: ../data/mail-notification.schemas.in.in.h:42
+msgid "The sound file to play when new mail arrives."
+msgstr "Garso failas kuris bus grojamas gavus naują laišką."
+
+#: ../data/mail-notification.schemas.in.in.h:43
+msgid ""
+"The type of mail summary to display in the icon's tooltip. Must be \"standard"
+"\", \"compact\" or \"none\"."
+msgstr ""
+"Pašto santraukos tipas rodomas piktogramos aprašyme. Turi būti „standard“, "
+"„compact“ arba „none“."
+
+#: ../data/mail-notification.schemas.in.in.h:44
+msgid "The width of the properties dialog in pixels."
+msgstr "Savybių dialogo ilgis pikseliais."
+
+#: ../data/mail-notification.schemas.in.in.h:45
+msgid "Tooltip mail summary"
+msgstr "Pašto aprašymo santrauka"
+
+#: ../data/mail-notification.schemas.in.in.h:46
+msgid "Trusted servers list"
+msgstr "Patikimų serverių sąrašas"
+
+#: ../data/mail-notification.schemas.in.in.h:47
+msgid "Whether the status icon should blink on errors or not."
+msgstr "Būsenos juosta įvykus klaidai turėtų mirksėti ar ne."
+
+#: ../data/mail-notification.schemas.in.in.h:48
+msgid "Whether to display a message count in the status icon or not."
+msgstr "Būsenos juostoje rodyti laiškų skaičių ar ne."
+
+#: ../data/mail-notification.schemas.in.in.h:49
+msgid "Whether to display an icon when there is no new mail or not."
+msgstr "Kai nėra naujų laiškų rodyti piktogramą ar ne."
+
+#: ../data/mail-notification.schemas.in.in.h:50
+msgid ""
+"Whether to display mail which is still marked as unread but has been seen or "
+"not."
+msgstr "Rodyti laiškus kurie pažymėti kaip skaityti ar ne."
+
+#: ../data/mail-notification.schemas.in.in.h:51
+msgid "Whether to enable message popups or not."
+msgstr "Įgalinti pranešimų iššokančius pranešimus ar ne."
+
+#: ../data/mail-notification.schemas.in.in.h:52
+msgid ""
+"Whether to expire message popups or not. Must be \"default\", \"false\" or "
+"\"true\"."
+msgstr ""
+"Iššokančių langų galiojimas baigiasi ar ne. Turi būti „default“, „false“ "
+"arba „true“."
+
+#: ../data/mail-notification.schemas.in.in.h:53
+msgid "Whether to play a sound when new mail arrives or not."
+msgstr "Groti garsą gavus pranešimą ar ne."
+
+#: ../data/mail-notification.schemas.in.in.h:54
+msgid "Whether to run a command when all mail is read or not."
+msgstr "Vykdyti komandą kai visi pranešimai perskaityti ar ne."
+
+#: ../data/mail-notification.schemas.in.in.h:55
+msgid "Whether to run a command when new mail arrives or not."
+msgstr "Vykdyti komandą gavus naują pranešimų ar ne."
+
+#: ../data/mail-notification.schemas.in.in.h:56
+msgid "Whether to run a command when the message list changes or not."
+msgstr "Vykdyti komandą pasikeitus pranešimų sąrašui ar ne."
+
+#: ../data/mail-notification.schemas.in.in.h:57
+msgid "Width of properties dialog"
+msgstr "Savybių dialogo plotis"
+
+#: ../src/eggtrayicon.c:133
+msgid "Orientation"
+msgstr "Orientacija"
+
+#: ../src/eggtrayicon.c:134
+msgid "The orientation of the tray."
+msgstr "Skydelio orientacija."
+
+#. translators: header capitalization
+#: ../src/mn-about-dialog.gob:47
+msgid "A Mail Notification Icon"
+msgstr "„Pranešimai apie paštą“ piktograma"
+
+#.
+#. * translators: Your Name <your-email>
+#. * optionally followed by one or more: \nOther Contributor's Name <his-email>
+#.
+#: ../src/mn-about-dialog.gob:55
+msgid "translator-credits"
+msgstr "Algimantas Margevičius <margevicius.algimantas@mail.ru>"
+
+#: ../src/mn-auth-combo-box.gob:98
+#: ../src/mn-autodetect-mailbox-properties.gob:106
+msgid "Autodetect"
+msgstr "Automatiškai nustatyti"
+
+#. translators: header capitalization
+#: ../src/mn-authenticated-mailbox-properties.gob:56
+msgid "Account"
+msgstr "Paskyra"
+
+#: ../src/mn-authenticated-mailbox-properties.gob:59
+msgid "_Username:"
+msgstr "_Naudotojo vardas:"
+
+#: ../src/mn-authenticated-mailbox-properties.gob:63
+msgid "_Password:"
+msgstr "_Slaptažodis:"
+
+#: ../src/mn-authenticated-mailbox-properties.gob:140
+msgid "Saving password to keyring..."
+msgstr "Slaptažodžiai išsaugomi raktinėje..."
+
+#: ../src/mn-authenticated-mailbox-properties.gob:185
+msgid "Retrieving password from keyring..."
+msgstr "Slaptažodis gaunamas iš raktinės..."
+
+#. translators: the first %s is the mailbox format (eg: IMAP) and the second %s is the mailbox name (eg: john@imapserver.org)
+#: ../src/mn-authenticated-mailbox.gob:306
+#, c-format
+msgid ""
+"Mail Notification was unable to log into %s mailbox %s, possibly because the "
+"password you have entered is invalid.\n"
+"\n"
+"Please re-enter your password."
+msgstr ""
+"„Pranešimai apie paštą“ nesugebėjo prisijungti prie %s pašto dėžutės %s, "
+"turbūt todėl jog įvedėte netinkamą slaptažodį.\n"
+"\n"
+"Įveskite slaptažodį dar kartą."
+
+#. translators: the first %s is the mailbox format (eg: IMAP) and the second %s is the mailbox name (eg: john@imapserver.org)
+#: ../src/mn-authenticated-mailbox.gob:308
+#, c-format
+msgid "Enter your password for %s mailbox %s."
+msgstr "Įveskite slaptažodį savo %s pašto dėžutei %s."
+
+#. keep the title in sync with gnome-authentication-manager
+#. translators: header capitalization
+#: ../src/mn-authenticated-mailbox.gob:381
+msgid "Authentication Required"
+msgstr "Reikia nustatyti tapatybę"
+
+#: ../src/mn-authenticated-mailbox.gob:463
+msgid "Unable to save the mailbox password"
+msgstr "Nepavyko išsaugoti pašto dėžutės slaptažodžio"
+
+#. translators: the first %s is the mailbox format (eg: IMAP) and the second %s is the mailbox name (eg: john@imapserver.org)
+#: ../src/mn-authenticated-mailbox.gob:465
+#, c-format
+msgid "The password of %s mailbox %s could not be saved to the keyring."
+msgstr "%s pašto dėžutės %s slaptažodis neišsaugotas raktinėje."
+
+#. translators: header capitalization
+#: ../src/mn-autodetect-mailbox-properties.gob:119
+#: ../src/mn-system-vfs-mailbox-properties.gob:57
+msgid "Location"
+msgstr "Vieta:"
+
+#: ../src/mn-autodetect-mailbox-properties.gob:121
+msgid "_Location:"
+msgstr "_Vieta:"
+
+#. translators: header capitalization
+#: ../src/mn-autodetect-mailbox-properties.gob:129
+msgid "_Browse..."
+msgstr "_Naršyti..."
+
+#. translators: header capitalization
+#: ../src/mn-autodetect-mailbox-properties.gob:169
+msgid "Select a File or Folder"
+msgstr "Pasirinkite failą arba aplanką"
+
+#: ../src/mn-base-mbox-mailbox-backend.gob:346
+#, c-format
+msgid "unable to open mailbox: %s"
+msgstr "nepavyko atverti pašto dėžutės: %s"
+
+#: ../src/mn-client-session.c:177
+#, c-format
+msgid "resolving %s"
+msgstr "sprendžiama %s"
+
+#: ../src/mn-client-session.c:193
+#, c-format
+msgid "unable to resolve %s: %s"
+msgstr "nepavyko išspręsti %s: %s"
+
+#: ../src/mn-client-session.c:234
+#, c-format
+msgid "network address #%i"
+msgstr "tinklo adresas #%i"
+
+#: ../src/mn-client-session.c:237
+#, c-format
+msgid "unable to convert network address #%i into textual form: %s"
+msgstr "nepavyko konvertuoti tinklo adreso #%i į tekstinę formą: %s"
+
+#: ../src/mn-client-session.c:248
+#, c-format
+msgid "%s: unsupported address family"
+msgstr "%s: nepalaikoma adresų šeima"
+
+#: ../src/mn-client-session.c:255
+#, c-format
+msgid "%s: unable to create socket: %s"
+msgstr "%s: nepavyko sukurti lizdo: %s"
+
+#: ../src/mn-client-session.c:259
+#, c-format
+msgid "connecting to %s (%s) port %i"
+msgstr "prisijungiama prie %s (%s) prievado %i"
+
+#: ../src/mn-client-session.c:262
+#, c-format
+msgid "unable to connect: %s"
+msgstr "nepavyko prisijungti: %s"
+
+#: ../src/mn-client-session.c:267
+msgid "connected successfully"
+msgstr "sėkmingai prisijungta"
+
+#. if reached, we couldn't find a working address
+#: ../src/mn-client-session.c:281
+#, c-format
+msgid "unable to connect to %s"
+msgstr "nepavyko prisijungti prie %s"
+
+#: ../src/mn-client-session.c:333
+#, c-format
+msgid "response \"%s\" is not valid in current context"
+msgstr "šiame kontekste atsakymas „%s“ yra netinkamas"
+
+#: ../src/mn-client-session.c:362
+#, c-format
+msgid "unable to parse response \"%s\""
+msgstr "Nepavyko perskaityti atsakymo „%s“"
+
+#: ../src/mn-client-session.c:626
+msgid "server name not found in certificate"
+msgstr "sertifikate serverio vardas nerastas"
+
+#: ../src/mn-client-session.c:631
+#, c-format
+msgid ""
+"user-provided server name \"%s\" does not match certificate-provided server "
+"name \"%s\""
+msgstr ""
+"naudotojo pateiktas serverio vardas „%s“ neatitinka vardo „%s“ kurį pateikė "
+"sertifikatas"
+
+#: ../src/mn-client-session.c:645
+#, c-format
+msgid "\"%s\", "
+msgstr "„%s“, "
+
+#: ../src/mn-client-session.c:647 ../src/mn-client-session.c:1582
+#: ../src/mn-yahoo-mailbox.gob:218
+#, c-format
+msgid "\"%s\""
+msgstr "„%s“"
+
+#: ../src/mn-client-session.c:650
+#, c-format
+msgid ""
+"user-provided server name \"%s\" matches none of the certificate-provided "
+"server names %s"
+msgstr ""
+"naudotojo pateiktas serverio vardas „%s“ neatitinka nei vieno serverio "
+"pateikto vardo %s"
+
+#: ../src/mn-client-session.c:740
+#, c-format
+msgid "unable to initialize the OpenSSL library: %s"
+msgstr "nepavyko inicijuoti OpenSSl bibliotekos: %s"
+
+#: ../src/mn-client-session.c:748
+#, c-format
+msgid "unable to create a SSL/TLS object: %s"
+msgstr "nepavyko sukurti SSL/TLS objekto: %s"
+
+#: ../src/mn-client-session.c:754
+#, c-format
+msgid "unable to set the SSL/TLS file descriptor: %s"
+msgstr "nepavyko nustatyti SSL/TLS failo aprašymo: %s"
+
+#: ../src/mn-client-session.c:761
+#, c-format
+msgid "unable to perform the SSL/TLS handshake: %s"
+msgstr "nepavyko atlikti SSl/TLS rankos paspaudimo: %s"
+
+#: ../src/mn-client-session.c:767
+msgid "untrusted server"
+msgstr "nepatikimas serveris"
+
+#: ../src/mn-client-session.c:771
+#, c-format
+msgid "a SSL/TLS layer is now active (%s, %s %i-bit)"
+msgstr "SSL/TLS sluoksnis dabar yra aktyvus (%s, %s %i-bitų)"
+
+#: ../src/mn-client-session.c:819 ../src/mn-client-session.c:826
+#, c-format
+msgid "unable to read from server: %s"
+msgstr "nepavyko perskaityti iš serverio: %s"
+
+#: ../src/mn-client-session.c:824
+msgid "unable to read from server: EOF"
+msgstr "nepavyko perskaityti iš serverio: EOF"
+
+#: ../src/mn-client-session.c:836
+#, c-format
+msgid "unable to decode data using SASL: %s"
+msgstr "nepavyko atkoduoti duomenų naudojant SASL: %s"
+
+#: ../src/mn-client-session.c:980
+#, c-format
+msgid "unable to encode data using SASL: %s"
+msgstr "nepavyko užkoduoti duomenų naudojant SASL: %s"
+
+#: ../src/mn-client-session.c:1009 ../src/mn-client-session.c:1016
+#, c-format
+msgid "unable to write to server: %s"
+msgstr "nepavyko rašyti į serverį: %s"
+
+#: ../src/mn-client-session.c:1014
+msgid "unable to write to server: EOF"
+msgstr "nepavyko rašyti į serverį: EOF"
+
+#: ../src/mn-client-session.c:1043 ../src/mn-pop3-mailbox.gob:448
+#, c-format
+msgid "unable to encode Base64: %s"
+msgstr "nepavyko užkoduot naudojant Base64: %s"
+
+#: ../src/mn-client-session.c:1220
+#, c-format
+msgid "unable to initialize the SASL library: %s"
+msgstr "nepavyko inicijuoti SASL bibliotekos: %s"
+
+#: ../src/mn-client-session.c:1232
+#, c-format
+msgid "unable to retrieve local address of socket: %s"
+msgstr "nepavyko gauti vietinio lizdo adreso: %s"
+
+#: ../src/mn-client-session.c:1238
+#, c-format
+msgid "unable to retrieve remote address of socket: %s"
+msgstr "nepavyko gauti nutolusio lizdo adreso: %s"
+
+#: ../src/mn-client-session.c:1272
+#, c-format
+msgid "unable to set SASL security properties: %s"
+msgstr "nepavyko nustatyti SASL saugumo savybių: %s"
+
+#: ../src/mn-client-session.c:1296
+msgid ""
+"unable to start SASL authentication: SASL asked for something we did not know"
+msgstr ""
+"nepavyko pradėti SASL tapatybės nustatymo: SASL paprašė kažko ko mes nežinome"
+
+#: ../src/mn-client-session.c:1315
+#, c-format
+msgid "unable to start SASL authentication: %s"
+msgstr "nepavyko pradėti SASL tapatybės nustatymo: %s"
+
+#: ../src/mn-client-session.c:1319
+#, c-format
+msgid "unable to create a SASL connection: %s"
+msgstr "nepavyko sukurti SASL susijungimo: %s"
+
+#: ../src/mn-client-session.c:1366
+msgid "SASL asked for something we did not know, aborting SASL authentication"
+msgstr ""
+"SASL paprašė kažko ko mes nežinome, SASL tapatybės nustatymas nutraukiamas"
+
+#: ../src/mn-client-session.c:1383
+#, c-format
+msgid "%s, aborting SASL authentication"
+msgstr "%s, nutraukiamas SASL tapatybės nustatymas"
+
+#. compliance error
+#: ../src/mn-client-session.c:1388
+#, c-format
+msgid "unable to decode Base64 input from server: %s"
+msgstr "nepavyko atkoduoti Base64 įvesties iš serverio: %s"
+
+#: ../src/mn-client-session.c:1424
+#, c-format
+msgid "a SASL security layer of strength factor %i is now active"
+msgstr "SASL saugumo sluoksnis su stiprumo faktoriumi %i dabar aktyvus"
+
+#. a security layer is active but we can't retrieve maxoutbuf -> fatal
+#: ../src/mn-client-session.c:1429
+#, c-format
+msgid "unable to get SASL_MAXOUTBUF property: %s"
+msgstr "nepavyko gauti SASL_MAXOUTBUF savybės: %s"
+
+#: ../src/mn-client-session.c:1435
+#, c-format
+msgid "warning: unable to get SASL_SSF property: %s"
+msgstr "įspėjimas: nepavyko gauti SASL_SSF savybės: %s"
+
+#: ../src/mn-client-session.c:1583
+msgid "unknown server error"
+msgstr "nežinoma serverio klaida"
+
+#: ../src/mn-compact-message-view.gob:39
+msgid "Mailbox"
+msgstr "Pašto dėžutė"
+
+#: ../src/mn-compact-message-view.gob:40
+msgid "From"
+msgstr "Nuo"
+
+#: ../src/mn-compact-message-view.gob:41
+msgid "Subject"
+msgstr "Tema"
+
+#: ../src/mn-compact-message-view.gob:42
+msgid "Sent"
+msgstr "Išsiųstas"
+
+#: ../src/mn-conf.c:250
+#, c-format
+msgid "cannot find default value of configuration key \"%s\""
+msgstr "nepavyko rasti konfigūracijos rakto „%s“ numatytosios reikšmės"
+
+#: ../src/mn-conf.c:255
+msgid ""
+"The default configuration has not been installed properly. Please check your "
+"Mail Notification installation."
+msgstr ""
+"Numatytoji konfigūracija įdiegta netinkamai. Patikrinkite savo „Pranešimai "
+"apie paštą“ įdiegimą."
+
+#: ../src/mn-conf.c:292
+msgid "A directory creation error has occurred"
+msgstr "Kuriant aplanką įvyko klaida"
+
+#: ../src/mn-conf.c:293
+#, c-format
+msgid "Unable to create directory \"%s\": %s."
+msgstr "Nepavyko sukurti aplanko „%s“: %s."
+
+#: ../src/mn-conf.c:362
+#, c-format
+msgid "recursively unsetting %s"
+msgstr "rekursyviai atžymima %s"
+
+#: ../src/mn-conf.c:366
+msgid "syncing the GConf database"
+msgstr "sinchronizuojama GConf duomenų bazė"
+
+#: ../src/mn-conf.c:369
+msgid "completed"
+msgstr "baigta"
+
+#: ../src/mn-custom-vfs-mailbox.gob:72
+msgid "invalid location"
+msgstr "netinkama vieta"
+
+#: ../src/mn-evolution-folder-tree-client.gob:269
+msgid ""
+"Mail Notification can not contact Evolution. Make sure that Evolution is "
+"running and that the Evolution Jean-Yves Lefort's Mail Notification plugin "
+"is loaded."
+msgstr ""
+"„Pranešimai apie paštą“ negali susisiekti su Evolution. Įsitikinkite jog "
+"Evolution paleista ir Evolution Jean-Yves Lefort'o „Pranešimai apie paštą“ "
+"įskiepis įkrautas."
+
+#. translators: header capitalization
+#: ../src/mn-evolution-mailbox-properties.gob:71
+#: ../src/mn-webmail-mailbox-properties.gob:92
+msgid "Folder"
+msgstr "Aplankas"
+
+#: ../src/mn-evolution-mailbox.gob:225
+msgid "unable to contact Evolution"
+msgstr "nepavyko susisiekti su Evolution"
+
+#: ../src/mn-evolution-plugin.c:151
+msgid "A fatal error has occurred in the Evolution Mail Notification plugin"
+msgstr "Evolution „Pranešimai apie paštą“ įskiepyje įvyko kritinė klaida"
+
+#: ../src/mn-evolution-plugin.c:152 ../src/mn-main.c:250
+msgid "The connection to the D-Bus session bus was lost."
+msgstr "Prisijungimas prie D-Bus seanso prarastas."
+
+#: ../src/mn-evolution-plugin.c:175 ../src/mn-evolution-plugin.c:188
+#: ../src/mn-evolution-plugin.c:226
+msgid "Unable to initialize the Mail Notification plugin"
+msgstr "Nepavyko inicijuoti „Pranešimai apie paštą“ įskiepio"
+
+#: ../src/mn-evolution-plugin.c:176 ../src/mn-main.c:283
+#, c-format
+msgid "Unable to connect to the D-Bus session bus: %s."
+msgstr "Nepavyko prisijungti prie D-Bus seanso: %s."
+
+#: ../src/mn-evolution-plugin.c:227
+#, c-format
+msgid "Unable to register the Mail Notification Evolution D-Bus server: %s."
+msgstr ""
+"Nepavyko prisiregistruoti prie „Pranešimai apie paštą“ Evolution D-Bus "
+"serverio: %s."
+
+#: ../src/mn-evolution-server.gob:152
+#, c-format
+msgid "folder not found"
+msgstr "aplankas nerastas"
+
+#: ../src/mn-evolution-server.gob:329
+#, c-format
+msgid "message not found"
+msgstr "pranešimas nerastas"
+
+#.
+#. * translators: GTK+ has the same message used in the same
+#. * context; please use the GTK+ translation for consistency
+#.
+#: ../src/mn-file-chooser-button.gob:179
+msgid "(None)"
+msgstr "(Joks)"
+
+#. translators: header capitalization
+#: ../src/mn-gmail-mailbox-properties.gob:105
+msgid "Gmail Label"
+msgstr "Gmail etiketė"
+
+#: ../src/mn-gmail-mailbox-properties.gob:107
+msgid "_Restrict to this label:"
+msgstr "_Priskirti šiai etiketei:"
+
+#: ../src/mn-gmail-mailbox.gob:154
+msgid "invalid feed location"
+msgstr "netinkama kanalo vieta"
+
+#: ../src/mn-gmail-mailbox.gob:175
+#, c-format
+msgid "retrieving feed from %s"
+msgstr "gaunamas kanalas iš %s"
+
+#: ../src/mn-gmail-mailbox.gob:182
+#, c-format
+msgid "unable to retrieve feed: %s"
+msgstr "nepavyko gauti kanalo: %s"
+
+#: ../src/mn-gmail-mailbox.gob:191
+#, c-format
+msgid "feed retrieved successfully (%i byte)"
+msgid_plural "feed retrieved successfully (%i bytes)"
+msgstr[0] "kanalas sėkmingai gautas (%i bitas)"
+msgstr[1] "kanalas sėkmingai gautas (%i bitai)"
+msgstr[2] "kanalas sėkmingai gautas (%i bitų)"
+
+#: ../src/mn-gmail-mailbox.gob:203 ../src/mn-gmail-mailbox.gob:254
+msgid "unable to parse feed"
+msgstr "nepavyko apdoroti kanalo"
+
+#: ../src/mn-gmime-stream-vfs.gob:48
+#: ../src/mn-sylpheed-mailbox-backend.gob:209
+#, c-format
+msgid "unable to read %s: %s"
+msgstr "nepavyko perskaityti %s: %s"
+
+#: ../src/mn-gmime-stream-vfs.gob:50 ../src/mn-webmail-mailbox.gob:141
+#, c-format
+msgid "unable to write to %s: %s"
+msgstr "nepavyko įrašyti į %s: %s"
+
+#: ../src/mn-gmime-stream-vfs.gob:52
+#, c-format
+msgid "unable to seek in %s: %s"
+msgstr "nepavyko peršokti į %s: %s"
+
+#: ../src/mn-gmime-stream-vfs.gob:54
+#, c-format
+msgid "unable to tell position of %s: %s"
+msgstr "nepavyko nustatyti vietos %s: %s"
+
+#: ../src/mn-gmime-stream-vfs.gob:56 ../src/mn-mh-mailbox-backend.gob:216
+#: ../src/mn-webmail-mailbox.gob:147
+#, c-format
+msgid "unable to close %s: %s"
+msgstr "nepavyko užverti %s: %s"
+
+#: ../src/mn-hotmail-mailbox.gob:286 ../src/mn-imap-mailbox.gob:1684
+#: ../src/mn-pop3-mailbox.gob:1165
+msgid "authentication failed"
+msgstr "nepavyko nustatyti tapatybės"
+
+#. translators: header capitalization
+#: ../src/mn-imap-mailbox-properties.gob:109
+msgid "IMAP Mailbox"
+msgstr "IMAP Pašto dėžutė"
+
+#: ../src/mn-imap-mailbox-properties.gob:111
+#: ../src/mn-webmail-mailbox-properties.gob:94
+msgid "In_box"
+msgstr "Gau_tieji"
+
+#: ../src/mn-imap-mailbox-properties.gob:116
+#: ../src/mn-webmail-mailbox-properties.gob:99
+#: ../ui/mailbox-properties-dialog.glade.h:10
+msgid "_Other:"
+msgstr "_Kita:"
+
+#. translators: header capitalization
+#: ../src/mn-imap-mailbox-properties.gob:129
+msgid "Use the IDLE Extension"
+msgstr "Naudoti IDLE plėtinį"
+
+#: ../src/mn-imap-mailbox-properties.gob:133
+msgid "IMAP connection tab|_Never"
+msgstr "IMAP prisijungimo kortelė|_Niekada"
+
+#: ../src/mn-imap-mailbox-properties.gob:134
+msgid "A_utodetect"
+msgstr "_Nustatyti automatiškai"
+
+#: ../src/mn-imap-mailbox-properties.gob:135
+msgid "Al_ways"
+msgstr "_Visada"
+
+#: ../src/mn-imap-mailbox.gob:384
+msgid "server did not send capabilities"
+msgstr "serveris neatsiuntė galimybių"
+
+#: ../src/mn-imap-mailbox.gob:551
+msgid "server advertised LOGINDISABLED, not using LOGIN authentication"
+msgstr "serveris atsakė LOGINDISABLED, nenaudojamas LOGIN tapatybės nustatymas"
+
+#: ../src/mn-imap-mailbox.gob:552
+msgid "unable to login"
+msgstr "prisijungti nepavyko"
+
+#: ../src/mn-imap-mailbox.gob:1067
+msgid ""
+"\"Use the IDLE extension\" set to \"never\" in the mailbox properties, "
+"logging out"
+msgstr ""
+"Pašto dėžutės savybėse „Naudoti IDLE plėtinį“ nustatyta „niekada“, "
+"atsijungiama"
+
+#: ../src/mn-imap-mailbox.gob:1078
+#, c-format
+msgid "the remote server runs %s, not using the IDLE extension"
+msgstr "nutolęs serveris naudoja %s, IDLE plėtinys nenaudojamas"
+
+#: ../src/mn-imap-mailbox.gob:1083
+#, c-format
+msgid ""
+"the remote server runs %s, the IDLE extension might not function properly"
+msgstr "nutolęs serveris naudoja %s, IDLE plėtinys gali neveikti tinkamai"
+
+#: ../src/mn-imap-mailbox.gob:1092
+msgid "the remote server does not support the IDLE extension, logging out"
+msgstr "nutolęs serveris nepalaiko IDLE plėtinio, atsijungiama"
+
+#: ../src/mn-imap-mailbox.gob:1594 ../src/mn-pop3-mailbox.gob:309
+msgid "server does not support in-band SSL/TLS"
+msgstr "serveris nepalaiko in-band SSl/TLS"
+
+#: ../src/mn-imap-mailbox.gob:1618 ../src/mn-pop3-mailbox.gob:1080
+msgid ""
+"a SASL authentication mechanism was selected but SASL support has not been "
+"compiled in"
+msgstr ""
+"buvo pasirinktas SASL tapatybės nustatymas, bet SASL palaikymas nebuvo "
+"įkompiliuotas"
+
+#: ../src/mn-imap-mailbox.gob:1628 ../src/mn-pop3-mailbox.gob:1100
+#, c-format
+msgid "unknown authentication mechanism \"%s\""
+msgstr "nežinomas tapatybės nustatymo mechanizmas „%s“"
+
+#: ../src/mn-imap-mailbox.gob:1660 ../src/mn-pop3-mailbox.gob:1136
+#, c-format
+msgid "disabling mechanism \"%s\" and retrying SASL authentication"
+msgstr "išjungiamas mechanizmas „%s“ ir bandoma SASL tapatybės nustatymas"
+
+#: ../src/mn-imap-mailbox.gob:1672
+msgid "falling back to IMAP LOGIN authentication"
+msgstr "grįžtama prie IMAP LOGIN tapatybės nustatymo"
+
+#: ../src/mn-imap-mailbox.gob:1728 ../src/mn-pop3-mailbox.gob:744
+#, c-format
+msgid "cannot retrieve %i message"
+msgid_plural "cannot retrieve %i messages"
+msgstr[0] "nepavyko gauti %i pranešimo"
+msgstr[1] "nepavyko gauti %i pranešimų"
+msgstr[2] "nepavyko gauti %i pranešimų"
+
+#. translators: header capitalization
+#: ../src/mn-mail-icon.gob:86
+msgid "_Mail Reader"
+msgstr "_Pašto programa"
+
+#. translators: header capitalization
+#: ../src/mn-mail-icon.gob:88
+msgid "_Open Latest Message"
+msgstr "_Atverti naujausią pranešimą"
+
+#. translators: header capitalization
+#: ../src/mn-mail-icon.gob:93
+msgid "_Consider New Mail as Read"
+msgstr "_Laikyti naujus laiškus skaitytais"
+
+#. translators: header capitalization
+#: ../src/mn-mail-icon.gob:95 ../src/mn-mailbox-view.gob:312
+msgid "_Update"
+msgstr "A_tnaujinti"
+
+#. translators: header capitalization
+#: ../src/mn-mail-icon.gob:106
+msgid "R_emove From Notification Area"
+msgstr "Pašalinti iš pranešimų _srities"
+
+#. translators: header capitalization
+#: ../src/mn-mailbox-properties-dialog.gob:106
+#, c-format
+msgid "%s Properties"
+msgstr "%s savybės"
+
+#. translators: header capitalization
+#: ../src/mn-mailbox-properties-dialog.gob:210
+msgid "Add a Mailbox"
+msgstr "Pridėti pašto dėžutę"
+
+#: ../src/mn-mailbox-properties-dialog.gob:585
+msgid "_Default:"
+msgstr "_Numatyta:"
+
+#: ../src/mn-mailbox-properties-dialog.gob:587
+#: ../ui/mailbox-properties-dialog.glade.h:9
+msgid "_Default"
+msgstr "_Numatyta"
+
+#: ../src/mn-mailbox-properties-dialog.gob:614
+msgid "D_efault:"
+msgstr "N_umatyta:"
+
+#: ../src/mn-mailbox-properties-dialog.gob:618
+#: ../ui/mailbox-properties-dialog.glade.h:4
+msgid "D_efault"
+msgstr "N_umatyta"
+
+#: ../src/mn-mailbox-view.gob:249
+msgid "A paste error has occurred"
+msgstr "Įklijuojant įvyko klaida"
+
+#: ../src/mn-mailbox-view.gob:571
+#, c-format
+msgid "unhandled %s mailbox (%s)"
+msgstr "neapdorota %s pašto dėžutė (%s)"
+
+#: ../src/mn-mailbox-view.gob:575
+#, c-format
+msgid "%s mailbox"
+msgstr "%s pašto dėžutė"
+
+#: ../src/mn-mailbox-view.gob:586
+msgid "detecting mailbox type..."
+msgstr "nustatomas pašto dėžutės tipas..."
+
+#: ../src/mn-mailbox.gob:667
+#, c-format
+msgid "\"type\" attribute missing"
+msgstr "„tipo“ atributo nėra"
+
+#: ../src/mn-mailbox.gob:674
+#, c-format
+msgid "unknown mailbox type \"%s\""
+msgstr "nežinomas pašto dėžutės tipas „%s“"
+
+#: ../src/mn-mailbox.gob:1073
+#, c-format
+msgid "property \"%s\" has no value"
+msgstr "savybė „%s“ neturi reikšmės"
+
+#: ../src/mn-mailbox.gob:1152 ../src/mn-mailbox.gob:1170
+#: ../src/mn-shell.gob:626
+#, c-format
+msgid "%s: %s"
+msgstr "%s: %s"
+
+#: ../src/mn-mailboxes.gob:250
+msgid "An error has occurred while importing old mailboxes"
+msgstr "Importuojant senas pašto dėžutes kilo klaida"
+
+#: ../src/mn-mailboxes.gob:305
+msgid "Unable to load the mailboxes configuration"
+msgstr "Nepavyko įkrauti pašto dėžučių konfigūracijos"
+
+#: ../src/mn-mailboxes.gob:352
+#, c-format
+msgid "Unable to parse the XML document."
+msgstr "Nepavyko apdoroti XML dokumento."
+
+#: ../src/mn-mailboxes.gob:359
+#, c-format
+msgid "The root element is missing."
+msgstr "Trūksta šakninio elemento."
+
+#: ../src/mn-mailboxes.gob:365
+#, c-format
+msgid "The root element \"%s\" is invalid."
+msgstr "Šakninis elementas „%s“ yra netinkamas."
+
+#: ../src/mn-mailboxes.gob:387
+#, c-format
+msgid "On line %i: %s."
+msgstr "Linijoj %i: %s."
+
+#: ../src/mn-mailboxes.gob:392
+#, c-format
+msgid "On line %i: unknown element \"%s\"."
+msgstr "Linijoj %i: nežinomas elementas „%s“."
+
+#: ../src/mn-mailboxes.gob:401
+msgid "An error has occurred while loading the mailboxes configuration"
+msgid_plural "Errors have occurred while loading the mailboxes configuration"
+msgstr[0] "Įkraunant pašto dėžučių konfigūraciją įvyko klaida"
+msgstr[1] "Įkraunant pašto dėžučių konfigūraciją įvyko klaida"
+msgstr[2] "Įkraunant pašto dėžučių konfigūraciją įvyko klaida"
+
+#: ../src/mn-mailboxes.gob:426
+msgid "Unable to save the mailboxes configuration"
+msgstr "nepavyko išsaugoti pašto dėžučių konfigūracijos"
+
+#: ../src/mn-mailboxes.gob:471 ../src/mn-vfs.c:233
+#, c-format
+msgid "Unable to remove %s: %s."
+msgstr "Nepavyko pašalinti %s: %s."
+
+#: ../src/mn-mailboxes.gob:479
+#, c-format
+msgid "Unable to create %s: %s."
+msgstr "Nepavyko sukurti %s: %s."
+
+#: ../src/mn-mailboxes.gob:486
+#, c-format
+msgid "Unable to open %s for writing: %s."
+msgstr "Nepavyko atverti %s rašymui: %s."
+
+#: ../src/mn-mailboxes.gob:493
+#, c-format
+msgid "Unable to write the XML document."
+msgstr "Nepavyko rašyti į XML dokumentą."
+
+#: ../src/mn-mailboxes.gob:499
+#, c-format
+msgid "Unable to close %s: %s."
+msgstr "Nepavyko užverti %s: %s."
+
+#: ../src/mn-mailboxes.gob:509 ../src/mn-mailboxes.gob:516 ../src/mn-vfs.c:251
+#: ../src/mn-vfs.c:259
+#, c-format
+msgid "Unable to rename %s to %s: %s."
+msgstr "Nepavyko pervadinti  %s į %s: %s."
+
+#. non fatal
+#: ../src/mn-mailboxes.gob:522 ../src/mn-vfs.c:269
+#, c-format
+msgid "unable to delete %s: %s"
+msgstr "nepavyko pašalinti %s: %s"
+
+#: ../src/mn-mailboxes.gob:555
+#, c-format
+msgid "%s has %i new message"
+msgid_plural "%s has %i new messages"
+msgstr[0] "%s turi %i naują žinutę"
+msgstr[1] "%s turi %i naujas žinutes"
+msgstr[2] "%s turi %i naujų žinučių"
+
+#: ../src/mn-mailboxes.gob:581
+#, c-format
+msgid "%s reported an error: %s"
+msgstr "%s pranešė apie klaidą: %s"
+
+#: ../src/mn-maildir-mailbox-backend.gob:127
+#, c-format
+msgid "unable to open folder \"%s\": %s"
+msgstr "nepavyko atverti aplanko „%s“: %s"
+
+#: ../src/mn-maildir-mailbox-backend.gob:231
+#, c-format
+msgid "unable to close folder \"%s\": %s"
+msgstr "nepavyko užverti aplanko „%s“: %s"
+
+#: ../src/mn-maildir-mailbox-backend.gob:234
+#, c-format
+msgid "error while reading folder \"%s\": %s"
+msgstr "klaida skaitant aplanką „%s“: %s"
+
+#: ../src/mn-maildir-mailbox-backend.gob:265
+#: ../src/mn-mh-mailbox-backend.gob:210
+#: ../src/mn-sylpheed-mailbox-backend.gob:311
+#, c-format
+msgid "cannot read %i message"
+msgid_plural "cannot read %i messages"
+msgstr[0] "nepavyko perskaityti %i pranešimo"
+msgstr[1] "nepavyko perskaityti %i pranešimų"
+msgstr[2] "nepavyko perskaityti %i pranešimų"
+
+#: ../src/mn-maildir-message.gob:159
+msgid "Delete message?"
+msgstr "Pašalinti laišką?"
+
+#: ../src/mn-maildir-message.gob:225
+msgid "The message cannot be moved to the trash. Permanently delete it?"
+msgstr "Laiškas negali būti perkeltas į šiukšlinę. Ištrinti visam laikui?"
+
+#: ../src/mn-maildir-message.gob:250
+#, c-format
+msgid ""
+"The message could not be moved to the trash (%s). Permanently delete it?"
+msgstr ""
+"Laiškas negalėjo būti perkeltas į šiukšlinę (%s). Ištrinti visam laikui?"
+
+#: ../src/mn-main.c:76
+msgid "yes"
+msgstr "taip"
+
+#: ../src/mn-main.c:76
+msgid "no"
+msgstr "ne"
+
+#: ../src/mn-main.c:107
+#, c-format
+msgid "%s version %s\n"
+msgstr "%s versija %s\n"
+
+#: ../src/mn-main.c:112
+#, c-format
+msgid "Mailbox backends:\n"
+msgstr "Pašto dėžutės posistemės:\n"
+
+#: ../src/mn-main.c:117
+#, c-format
+msgid "IMAP and POP3 features:\n"
+msgstr "IMAP ir POP3 galimybės:\n"
+
+#: ../src/mn-main.c:204
+#, c-format
+msgid "Unable to contact the running Mail Notification instance: %s."
+msgstr "Nepavyko susisiekti su paleista „Pranešimai apie paštą“ kopija: %s"
+
+#: ../src/mn-main.c:244
+#, c-format
+msgid "%s option ignored since Mail Notification is not already running"
+msgstr "%s parinktis nepaisoma, nes „Pranešimai apie paštą“ nepaleistas"
+
+#: ../src/mn-main.c:347
+msgid "Show version information"
+msgstr "Rodyti versijos informaciją"
+
+#: ../src/mn-main.c:356
+msgid "Enable informational output"
+msgstr "Įgalinti informacinę išvestį"
+
+#: ../src/mn-main.c:365
+msgid "Display the properties dialog"
+msgstr "Rodyti savybių dialogą"
+
+#: ../src/mn-main.c:374
+msgid "Display the about dialog"
+msgstr "Rodyti „apie“ dialogą"
+
+#: ../src/mn-main.c:383
+msgid "Consider new mail as read"
+msgstr "Laikyti naują laišką skaitytu"
+
+#: ../src/mn-main.c:392
+msgid "Update the mail status"
+msgstr "Atnaujinti pašto būseną"
+
+#: ../src/mn-main.c:401
+msgid "Print a XML mail summary"
+msgstr "Spausdinti XML pašto santrauką"
+
+#: ../src/mn-main.c:410
+msgid "Unset obsolete GConf configuration"
+msgstr "Pašalinti pasenusią GConf konfigūraciją"
+
+#: ../src/mn-main.c:419
+msgid "Quit Mail Notification"
+msgstr "Užverti „Pranešimai apie paštą“"
+
+#.
+#. * We cannot use mn_fatal_error_dialog() because gtk_init() has
+#. * not been called yet.
+#.
+#: ../src/mn-main.c:445
+msgid "multi-threading is not available"
+msgstr "kelios kopijos neleidžiamos"
+
+#: ../src/mn-main.c:486
+msgid "Mail Notification is not running"
+msgstr "„Pranešimai apie paštą“ nepaleista"
+
+#: ../src/mn-main.c:498
+msgid "Unable to initialize the GnomeVFS library."
+msgstr "Nepavyko inicijuoti GnomeVFS bibliotekos"
+
+#: ../src/mn-main.c:511
+msgid "An initialization error has occurred in Mail Notification"
+msgstr "„Pranešimai apie paštą“ pranešė apie inicijavimo klaidą"
+
+#: ../src/mn-main.c:512
+msgid ""
+"Unable to initialize the notification library. Message popups will not be "
+"displayed."
+msgstr ""
+"Nepavyko inicijuoti pranešimų bibliotekos. Iššokantys pranešimai nebus "
+"rodomi."
+
+#: ../src/mn-main.c:557
+msgid "quitting Mail Notification"
+msgstr "užveriamas „Pranešimai apie paštą“"
+
+#: ../src/mn-main.c:576
+msgid "considering new mail as read"
+msgstr "nauji laiškai laikomi perskaitytais"
+
+#: ../src/mn-main.c:581
+msgid "updating the mail status"
+msgstr "atnaujinama pašto būsena"
+
+#: ../src/mn-main.c:598
+msgid "Mail Notification is already running"
+msgstr "„Pranešimai apie paštą“ jau veikia"
+
+#: ../src/mn-message-mime.c:173
+#, c-format
+msgid "unable to parse MIME message"
+msgstr "nepavyko apdoroti MIME laiško"
+
+#. translators: header capitalization
+#: ../src/mn-message.gob:98
+msgid "Open"
+msgstr "Atverti"
+
+#: ../src/mn-message.gob:99
+msgid "Unable to open message"
+msgstr "Nepavyko atverti laiško"
+
+#. translators: header capitalization
+#: ../src/mn-message.gob:108
+msgid "Mark as Read"
+msgstr "Pažymėti kaip skaitytą"
+
+#: ../src/mn-message.gob:109
+msgid "Unable to mark message as read"
+msgstr "Nepavyko pažymėti kaip skaityto"
+
+#. translators: header capitalization
+#: ../src/mn-message.gob:118
+msgid "Mark as Spam"
+msgstr "Pažymėti kaip brukalą"
+
+#: ../src/mn-message.gob:119 ../src/mn-message.gob:129
+msgid "Unable to mark message as spam"
+msgstr "Nepavyko pažymėti kaip brukalo"
+
+#. translators: header capitalization
+#: ../src/mn-message.gob:128
+msgid "Delete"
+msgstr "Pašalinti"
+
+#: ../src/mn-message.gob:337 ../src/mn-sound-player.gob:133
+#: ../src/mn-sound-player.gob:169 ../src/mn-util.c:1577
+#, c-format
+msgid "Unable to execute \"%s\": %s."
+msgstr "Nepavyko įvykdyti „%s“: %s."
+
+#: ../src/mn-mh-mailbox-backend.gob:219
+#, c-format
+msgid "error while reading %s: %s"
+msgstr "klaida šalinant %s: %s."
+
+#: ../src/mn-mh-mailbox-backend.gob:243 ../src/mn-webmail-mailbox.gob:276
+#, c-format
+msgid "unable to open %s: %s"
+msgstr "nepavyko atverti %s: %s"
+
+#: ../src/mn-pi-mailbox-properties.gob:73
+msgid "_Standard"
+msgstr "_Įprastas"
+
+#: ../src/mn-pi-mailbox-properties.gob:74
+msgid "In-_band SSL/TLS"
+msgstr "In-_band SSL/TLS"
+
+#: ../src/mn-pi-mailbox-properties.gob:75
+msgid "SSL/TLS on s_eparate port"
+msgstr "SSL/TLS su atskiru _prievadu"
+
+#: ../src/mn-pi-mailbox-properties.gob:79
+msgid "_Server:"
+msgstr "_Serveris:"
+
+#. translators: header capitalization
+#: ../src/mn-pi-mailbox-properties.gob:99
+msgid "Connection Type"
+msgstr "Prisijungimo tipas"
+
+#: ../src/mn-pi-mailbox-properties.gob:146
+msgid "Port:"
+msgstr "Prievadas:"
+
+#. translators: header capitalization
+#: ../src/mn-pi-mailbox-properties.gob:173
+msgid "Authentication"
+msgstr "Tapatybės nustatymas"
+
+#: ../src/mn-pi-mailbox-properties.gob:177
+msgid "_Mechanism:"
+msgstr "﻿_Mechanizmas:"
+
+#: ../src/mn-pi-mailbox-properties.gob:211
+msgid "Connection"
+msgstr "Prisijungimas"
+
+#: ../src/mn-pi-mailbox.gob:147
+msgid "SSL/TLS support has not been compiled in"
+msgstr "SSL/TLS neįgalinta kompiliavimo metu"
+
+#: ../src/mn-pi-mailbox.gob:305
+msgid "missing certificate"
+msgstr "trūksta sertifikato"
+
+#: ../src/mn-pi-mailbox.gob:339
+#, c-format
+msgid ""
+"Mail Notification was unable to trust \"%s\" (%s). It is possible that "
+"someone is intercepting your communication to obtain your confidential "
+"information.\n"
+"\n"
+"You should only connect to the server if you are certain you are connected "
+"to \"%s\". If you choose to connect to the server, this message will not be "
+"shown again."
+msgstr ""
+"„Pranešimai apie paštą“ negali pasitikėti „%s“ (%s). Gali būti jog kažkas "
+"perima jūsų pranešimus, su tikslu gauti slaptą informaciją.\n"
+"\n"
+"Jūs turėtumėte jungtis prie serverio tik įsitikinę jog jūs prisijungę prie "
+"„%s“. Jei pasirinkote jungtis prie serverio, šis pranešimas nebebus rodomas."
+
+#: ../src/mn-pi-mailbox.gob:353
+#, c-format
+msgid "Certificate fingerprint: %s."
+msgstr "Sertifikato piršto antspaudas: %s."
+
+#: ../src/mn-pi-mailbox.gob:360
+msgid "Connect to untrusted server?"
+msgstr "Jungtis prie nepatikimo serverio?"
+
+#: ../src/mn-pop3-mailbox.gob:359
+msgid "invalid arguments for the LOGIN-DELAY capability"
+msgstr "netinkami argumentai LOGIN-DELAY veiksenai"
+
+#.
+#. * Some servers violate RFC 2449 by not supporting a
+#. * second argument to the AUTH command. Support these
+#. * servers nevertheless, by retrying without the SASL
+#. * initial client response.
+#.
+#: ../src/mn-pop3-mailbox.gob:500
+msgid ""
+"SASL authentication with initial client response failed, retrying without "
+"initial client response"
+msgstr ""
+"SASL tapatybės nustatymas su pirminiu kliento atsaku nepavyko, bandoma dar "
+"kartą be pradinio kliento atsako"
+
+#: ../src/mn-pop3-mailbox.gob:920
+#, c-format
+msgid "honouring LOGIN-DELAY, sleeping for %i second"
+msgid_plural "honouring LOGIN-DELAY, sleeping for %i seconds"
+msgstr[0] "pagerbiamas LOGIN-DELAY, užmigdoma %i sekundei "
+msgstr[1] "pagerbiamas LOGIN-DELAY, užmigdoma %i sekundžių"
+msgstr[2] "pagerbiamas LOGIN-DELAY, užmigdoma %i sekundžių"
+
+#: ../src/mn-pop3-mailbox.gob:1092
+msgid "server does not support APOP authentication"
+msgstr "serveris nepalaiko APOP tapatybės nustatymo"
+
+#: ../src/mn-pop3-mailbox.gob:1148
+msgid "falling back to APOP authentication"
+msgstr "grįžtama prie APOP tapatybės nustatymo"
+
+#: ../src/mn-pop3-mailbox.gob:1153
+msgid "falling back to USER/PASS authentication"
+msgstr "grįžtama prie USER/PASS tapatybės nustatymo"
+
+#: ../src/mn-popup.gob:45 ../src/mn-standard-message-view.gob:39
+msgid "Mailbox:"
+msgstr "Pašto dėžutė:"
+
+#: ../src/mn-popup.gob:46 ../src/mn-standard-message-view.gob:40
+msgid "From:"
+msgstr "Nuo:"
+
+#: ../src/mn-popup.gob:47 ../src/mn-standard-message-view.gob:41
+msgid "Subject:"
+msgstr "Tema:"
+
+#: ../src/mn-popup.gob:96
+#, c-format
+msgid "configuration key %s: there is no action named \"%s\""
+msgstr "konfigūracijos raktas %s: nėra veiksmo pavadinto „%s“"
+
+#: ../src/mn-popup.gob:176
+#, c-format
+msgid "unable to show popup: %s"
+msgstr "nepavyko parodyti iššokančio lango: %s"
+
+#: ../src/mn-popup.gob:194
+#, c-format
+msgid "unable to close popup: %s"
+msgstr "nepavyko užverti iššokančio lango: %s"
+
+#. we set the summary here because libnotify requires it
+#. translators: header capitalization
+#: ../src/mn-popup.gob:205
+msgid "New Message"
+msgstr "Naujas laiškas"
+
+#. translators: header capitalization
+#: ../src/mn-properties-dialog.gob:114 ../ui/properties-dialog.glade.h:8
+msgid "Mail Notification Properties"
+msgstr "„Pranešimai apie paštą“ savybės"
+
+#: ../src/mn-properties-dialog.gob:232
+msgid "No mailbox selected."
+msgstr "Nepasirinkta pašto dėžutė."
+
+#: ../src/mn-properties-dialog.gob:237
+#, c-format
+msgid "%i mailbox selected."
+msgid_plural "%i mailboxes selected."
+msgstr[0] "%i pašto dėžutė pasirinkta."
+msgstr[1] "%i pašto dėžutės pasirinktos."
+msgstr[2] "%i pašto dėžutės pasirinkta."
+
+#: ../src/mn-server.gob:136
+#, c-format
+msgid "Unable to register the Mail Notification D-Bus server: %s."
+msgstr ""
+"Nepavyko užregistruoti „Pranešimai apie paštą“ prie D-Bus serverio: %s."
+
+#: ../src/mn-shell.gob:290
+#, c-format
+msgid "received %s signal, exiting"
+msgstr "gautas %s signalas, išeinama"
+
+#: ../src/mn-shell.gob:430
+msgid "No mail reader is configured"
+msgstr "Nėra sukonfigūruotos pašto programos"
+
+#: ../src/mn-shell.gob:431
+msgid ""
+"You can configure a mail reader by choosing <b>System → Preferences → "
+"Preferred Applications</b>."
+msgstr ""
+"Jūs galite sukonfigūruoti pašto programą pasirinkdami <b>Sistema → "
+"Nustatymai → Numatytosios programos</b>."
+
+#: ../src/mn-shell.gob:443 ../src/mn-shell.gob:449 ../src/mn-shell.gob:796
+msgid "Unable to open the latest message"
+msgstr "Nepavyko atverti paskutinio pranešimo"
+
+#: ../src/mn-shell.gob:444
+#, c-format
+msgid "Messages of mailbox \"%s\" cannot be opened."
+msgstr "Pranešimai iš pašto dėžutės „%s“ negali būti atverti."
+
+#: ../src/mn-shell.gob:450 ../src/mn-shell.gob:716
+msgid "You have no new mail."
+msgstr "Nėra naujų laiškų."
+
+#: ../src/mn-shell.gob:605
+#, c-format
+msgid "%s (%i)"
+msgstr "%s (%i)"
+
+#. translators: header capitalization
+#: ../src/mn-shell.gob:612
+msgid "Mailboxes Having New Mail"
+msgstr "Pašto dėžutės turi naujų laiškų"
+
+#. translators: header capitalization
+#: ../src/mn-shell.gob:631
+msgid "Errors"
+msgstr "Klaidos"
+
+#. translators: header capitalization
+#: ../src/mn-shell.gob:651
+msgid "Mail Summary"
+msgstr "Pašto santrauka"
+
+#: ../src/mn-shell.gob:691
+#, c-format
+msgid "<span style=\"italic\">%i message is not displayed</span>"
+msgid_plural "<span style=\"italic\">%i messages are not displayed</span>"
+msgstr[0] "<span style=\"italic\">%i pranešimas nerodomas</span>"
+msgstr[1] "<span style=\"italic\">%i pranešimai nerodomi</span>"
+msgstr[2] "<span style=\"italic\">%i pranešimų nerodoma</span>"
+
+#: ../src/mn-sound-file-chooser-dialog.gob:48
+msgid "Select a File"
+msgstr "Pasirinkite failą"
+
+#: ../src/mn-sound-file-chooser-dialog.gob:58
+msgid "All files"
+msgstr "Visi failai"
+
+#: ../src/mn-sound-file-chooser-dialog.gob:63
+msgid "Audio files"
+msgstr "Garso failai"
+
+#: ../src/mn-sound-player.gob:120
+msgid "Unable to play sound"
+msgstr "Nepavyko atkurti garso"
+
+#: ../src/mn-sound-player.gob:122 ../src/mn-util.c:1576
+msgid "A command error has occurred in Mail Notification"
+msgstr "„Pranešimai apie paštą“ susidūrė su klaida įvyko komandos klaida"
+
+#: ../src/mn-ssl.c:191
+msgid "unknown SSL/TLS error"
+msgstr "nežinoma SSl/TLS klaida "
+
+#: ../src/mn-standard-message-view.gob:45
+msgid "Sent:"
+msgstr "Išsiųsta:"
+
+#: ../src/mn-sylpheed-mailbox-backend.gob:229
+#, c-format
+msgid "unable to open folder: %s"
+msgstr "nepavyko atverti aplanko: %s"
+
+#: ../src/mn-sylpheed-mailbox-backend.gob:317
+#, c-format
+msgid "unable to close folder: %s"
+msgstr "nepavyko užverti aplanko: %s"
+
+#: ../src/mn-sylpheed-mailbox-backend.gob:320
+#, c-format
+msgid "error while reading folder: %s"
+msgstr "klaida skaitant aplanką: %s"
+
+#: ../src/mn-sylpheed-mailbox-backend.gob:368
+#, c-format
+msgid "unable to set encoding: %s"
+msgstr "nepavyko nustatyti kodavimo: %s"
+
+#: ../src/mn-sylpheed-mailbox-backend.gob:443
+#, c-format
+msgid "unexpected end of file"
+msgstr "netikėta failo pabaiga"
+
+#: ../src/mn-sylpheed-mailbox-backend.gob:483
+#, c-format
+msgid "incompatible file version \"%i\""
+msgstr "netinkama failo versija „%i“"
+
+#: ../src/mn-sylpheed-message.gob:69
+#, c-format
+msgid "Unable to read %s: %s."
+msgstr "Nepavyko perskaityt %s: %s."
+
+#: ../src/mn-system-vfs-mailbox-properties.gob:38
+#: ../src/mn-system-vfs-mailbox-properties.gob:46
+#: ../src/mn-system-vfs-mailbox.gob:44
+msgid "System mailbox"
+msgstr "Sistemos pašto dėžutė"
+
+#: ../src/mn-system-vfs-mailbox-properties.gob:73
+#, c-format
+msgid "Your system mailbox is <span weight=\"bold\">%s</span>."
+msgstr "Jūsų sistemos pašto dėžutė yra <span weight=\"bold\">%s</span>."
+
+#: ../src/mn-system-vfs-mailbox-properties.gob:80
+msgid ""
+"The location of your system mailbox could not be detected. Check the MAIL "
+"environment variable."
+msgstr ""
+"Nepavyko nustatyti jūsų pašto dėžutės vietos. Patikrinkite aplinkos "
+"kintamąjį MAIL."
+
+#: ../src/mn-system-vfs-mailbox.gob:71
+msgid "system mailbox not found"
+msgstr "sistemos pašto dėžutė nerasta"
+
+#: ../src/mn-test-mailbox.gob:38
+msgid "Test mailbox"
+msgstr "Patikrinti pašto dėžutę"
+
+#: ../src/mn-test-mailbox.gob:57
+#, c-format
+msgid "Test message #%i"
+msgstr "Bandomasis pranešimas #%i"
+
+#. translators: header capitalization
+#: ../src/mn-test-mailbox.gob:63
+msgid "Mail Notification Properties Dialog"
+msgstr "„Pranešimai apie paštą“ savybių dialogas"
+
+#: ../src/mn-util.c:525 ../src/mn-util.c:548 ../src/mn-util.c:568
+#: ../src/mn-util.c:590
+msgid "A drag and drop error has occurred"
+msgstr "Įvyko nuvilkimo ir numetimo klaida"
+
+#: ../src/mn-util.c:526
+msgid "An invalid location list has been received."
+msgstr "Gautas netinkamas vietų sąrašas."
+
+#: ../src/mn-util.c:569
+msgid "An invalid Mozilla location has been received."
+msgstr "Gauta netinkama „Mozilla“ vieta."
+
+#: ../src/mn-util.c:680
+msgid "Unable to display help"
+msgstr "Nepavyko parodyti žinyno"
+
+#: ../src/mn-util.c:692
+msgid "Unable to open link"
+msgstr "Nepavyko atverti nuorodos"
+
+#: ../src/mn-util.c:883
+#, c-format
+msgid ""
+"The following location is invalid:\n"
+"\n"
+"%s"
+msgid_plural ""
+"The following locations are invalid:\n"
+"\n"
+"%s"
+msgstr[0] ""
+"Ši vieta netinkama:\n"
+"\n"
+"%s"
+msgstr[1] ""
+"Šios vietos netinkamos:\n"
+"\n"
+"%s"
+msgstr[2] ""
+"Šios vietos netinkamos:\n"
+"\n"
+"%s"
+
+#: ../src/mn-util.c:899
+msgid "A fatal error has occurred in Mail Notification"
+msgstr "„Pranešimuose apie paštą“ įvyko kritinė klaida"
+
+#: ../src/mn-util.c:979
+#, c-format
+msgid "%i second ago"
+msgid_plural "%i seconds ago"
+msgstr[0] "prieš %i sekundę"
+msgstr[1] "prieš %i sekundes"
+msgstr[2] "prieš %i sekundžių"
+
+#: ../src/mn-util.c:983
+#, c-format
+msgid "about %i minute ago"
+msgid_plural "about %i minutes ago"
+msgstr[0] "maždaug prieš %i minutę"
+msgstr[1] "maždaug prieš %i minutes"
+msgstr[2] "maždaug prieš %i minučių"
+
+#: ../src/mn-util.c:988
+#, c-format
+msgid "about %i hour ago"
+msgid_plural "about %i hours ago"
+msgstr[0] "maždaug prieš %i valandą"
+msgstr[1] "maždaug prieš %i valandas"
+msgstr[2] "maždaug prieš %i valandų"
+
+#: ../src/mn-util.c:993
+#, c-format
+msgid "about %i day ago"
+msgid_plural "about %i days ago"
+msgstr[0] "maždaug prieš %i dieną"
+msgstr[1] "maždaug prieš %i dienas"
+msgstr[2] "maždaug prieš %i dienų"
+
+#: ../src/mn-util.c:998
+#, c-format
+msgid "about %i week ago"
+msgid_plural "about %i weeks ago"
+msgstr[0] "maždaug prieš %i savaitę"
+msgstr[1] "maždaug prieš %i savaites"
+msgstr[2] "maždaug prieš %i savaičių"
+
+#: ../src/mn-util.c:1016
+#, c-format
+msgid "%i second"
+msgid_plural "%i seconds"
+msgstr[0] "%i sekundė"
+msgstr[1] "%i sekundės"
+msgstr[2] "%i sekundžių"
+
+#: ../src/mn-util.c:1020
+#, c-format
+msgid "%i minute"
+msgid_plural "%i minutes"
+msgstr[0] "%i minutė"
+msgstr[1] "%i minutės"
+msgstr[2] "%i minučių"
+
+#: ../src/mn-util.c:1025
+#, c-format
+msgid "%i hour"
+msgid_plural "%i hours"
+msgstr[0] "%i valanda"
+msgstr[1] "%i valandos"
+msgstr[2] "%i valandų"
+
+#: ../src/mn-util.c:1030
+msgid "1 day"
+msgstr "1 diena"
+
+#: ../src/mn-util.c:1506
+#, c-format
+msgid "unterminated substitution"
+msgstr "neužbaigtas pakeitimas"
+
+#: ../src/mn-util.c:1545
+#, c-format
+msgid "unknown substitution \"%s\""
+msgstr "nežinomas pakeitimas „%s“"
+
+#: ../src/mn-util.c:1548
+#, c-format
+msgid "empty substitution"
+msgstr "tuščias pakeitimas"
+
+#: ../src/mn-vfs-mailbox.gob:236
+#, c-format
+msgid "unable to monitor %s (%s), poll mode activated"
+msgstr "nepavyko stebėti %s (%s), įjungtas apklausos režimas"
+
+#: ../src/mn-vfs-mailbox.gob:426
+msgid "unknown mailbox format"
+msgstr "nežinomas pašto dėžutės formatas"
+
+#: ../src/mn-vfs-mailbox.gob:426
+msgid "does not exist"
+msgstr "neegzistuoja"
+
+#: ../src/mn-vfs.c:241
+#, c-format
+msgid "Unable to write %s: %s."
+msgstr "Nepavyko įrašyti į %s: %s."
+
+#: ../src/mn-webmail-mailbox.gob:84
+#, c-format
+msgid "unable to create a temporary file: %s"
+msgstr "nepavyko sukurti laikino failo: %s"
+
+#: ../src/mn-webmail-mailbox.gob:91
+#, c-format
+msgid "unable to change the permissions of the temporary file: %s"
+msgstr "nepavyko pakeisti laikino failo leidimų:  %s"
+
+#: ../src/mn-webmail-mailbox.gob:135
+#, c-format
+msgid "unable to set encoding of %s: %s"
+msgstr "nepavyko nustatyti %s kodavimo: %s"
+
+#: ../src/mn-webmail-mailbox.gob:192
+msgid "configuration:"
+msgstr "konfigūracija:"
+
+#: ../src/mn-webmail-mailbox.gob:220
+#, c-format
+msgid "running %s"
+msgstr "vykdoma %s"
+
+#: ../src/mn-webmail-mailbox.gob:224
+#, c-format
+msgid "cannot execute \"%s\": %s"
+msgstr "nepavyko įvykdyti „%s“: %s"
+
+#: ../src/mn-webmail-mailbox.gob:229
+msgid "standard output:"
+msgstr "standartinė išvestis"
+
+#: ../src/mn-webmail-mailbox.gob:230
+msgid "standard error output:"
+msgstr "standartinė klaidų išvestis:"
+
+#. translators: %s is a program name, as in "unknown fetchyahoo failure"
+#: ../src/mn-webmail-mailbox.gob:248
+#, c-format
+msgid "unknown %s failure"
+msgstr "nežinoma %s klaida"
+
+#: ../src/mn-xml.c:51
+#, c-format
+msgid ""
+"property \"%s\": unable to transform string \"%s\" into a value of type \"%s"
+"\""
+msgstr "savybė „%s“: nepavyko pakeisti eilutę „%s“ į „%s“ tipo vertę"
+
+#: ../src/mn-yahoo-mailbox.gob:71
+#, c-format
+msgid "unable to change the permissions of %s: %s"
+msgstr "nepavyko pakeisti %s leidimų: %s"
+
+#: ../src/mn-yahoo-mailbox.gob:82
+#, c-format
+msgid "unable to create %s: %s"
+msgstr "nepavyko sukurti %s: %s"
+
+#: ../src/mn-yahoo-mailbox.gob:229
+msgid "delay between mail checks too small"
+msgstr "pašto tikrinimų intervalas per trumpas"
+
+#: ../ui/mailbox-properties-dialog.glade.h:1
+msgid "<span weight=\"bold\">Delay Between Mail Checks</span>"
+msgstr "<span weight=\"bold\">Pašto tikrinimų intervalas</span>"
+
+#. translators: header capitalization
+#: ../ui/mailbox-properties-dialog.glade.h:2 ../ui/properties-dialog.glade.h:2
+msgid "<span weight=\"bold\">General</span>"
+msgstr "<span weight=\"bold\">Bendra</span>"
+
+#: ../ui/mailbox-properties-dialog.glade.h:3
+msgid "<span weight=\"bold\">Mailbox Name</span>"
+msgstr "<span weight=\"bold\">Pašto dėžutės vardas</span>"
+
+#: ../ui/mailbox-properties-dialog.glade.h:5
+msgid "Details"
+msgstr "Detalės"
+
+#. translators: header capitalization
+#: ../ui/mailbox-properties-dialog.glade.h:6 ../ui/properties-dialog.glade.h:6
+msgid "General"
+msgstr "Bendra"
+
+#: ../ui/mailbox-properties-dialog.glade.h:7
+msgid "Mailbox _type:"
+msgstr "Pašto dėžutės _tipas:"
+
+#: ../ui/mailbox-properties-dialog.glade.h:8
+msgid "O_ther:"
+msgstr "_Kita:"
+
+#. translators: header capitalization
+#: ../ui/properties-dialog.glade.h:4
+msgid "<span weight=\"bold\">Mailbox List</span>"
+msgstr "<span weight=\"bold\">Pašto dėžučių sąrašas</span>"
+
+#: ../ui/properties-dialog.glade.h:9
+msgid "Play a _sound when new mail arrives:"
+msgstr "Gavus naują laišką groti garsą:"
+
+#. translators: header capitalization
+#: ../ui/properties-dialog.glade.h:11
+msgctxt "yes"
+msgid "<span weight=\"bold\">Click Action</span>"
+msgstr "<span weight=\"bold\">Veiksmas paspaudus</span>"
+
+#. translators: header capitalization
+#: ../ui/properties-dialog.glade.h:13
+msgctxt "yes"
+msgid "<span weight=\"bold\">Expiration</span>"
+msgstr "<span weight=\"bold\">Galiojimas</span>"
+
+#. translators: header capitalization
+#: ../ui/properties-dialog.glade.h:15
+msgctxt "yes"
+msgid "<span weight=\"bold\">General</span>"
+msgstr "<span weight=\"bold\">Bendra</span>"
+
+#. translators: header capitalization
+#: ../ui/properties-dialog.glade.h:17
+msgctxt "yes"
+msgid "<span weight=\"bold\">Position</span>"
+msgstr "<span weight=\"bold\">Vieta</span>"
+
+#: ../ui/properties-dialog.glade.h:18
+msgctxt "yes"
+msgid "A_fter:"
+msgstr "_Uždaryti po:"
+
+#: ../ui/properties-dialog.glade.h:19
+msgctxt "yes"
+msgid "Co_nsider new mail as read"
+msgstr "Naują laišką laikyti perskaitytu"
+
+#: ../ui/properties-dialog.glade.h:20
+msgctxt "yes"
+msgid "De_sktop default"
+msgstr "Darbastalio numatytasis"
+
+#: ../ui/properties-dialog.glade.h:21
+msgctxt "yes"
+msgid "In the p_opup stack"
+msgstr "Iššokančių langų eilė"
+
+#. translators: header capitalization
+#: ../ui/properties-dialog.glade.h:23
+msgctxt "yes"
+msgid "Message Popups"
+msgstr "Pranešimų iššokantys langai"
+
+#. translators: header capitalization
+#: ../ui/properties-dialog.glade.h:25
+msgctxt "yes"
+msgid "Status Icon"
+msgstr "Būsenos piktograma"
+
+#: ../ui/properties-dialog.glade.h:26
+msgctxt "yes"
+msgid "_Attached to the status icon"
+msgstr "_Susieta su būsenos piktograma"
+
+#: ../ui/properties-dialog.glade.h:27
+msgctxt "yes"
+msgid "_Display test messages"
+msgstr "_Rodyti bandomąjį pranešimą"
+
+#: ../ui/properties-dialog.glade.h:28
+msgctxt "yes"
+msgid "_Enable message popups"
+msgstr "_Įgalinti pranešimo iššokančius langus"
+
+#: ../ui/properties-dialog.glade.h:29
+msgctxt "yes"
+msgid "_Launch the mail reader"
+msgstr "_Paleisti pašto programą"
+
+#: ../ui/properties-dialog.glade.h:30
+msgctxt "yes"
+msgid "_Open the latest message"
+msgstr "_Atverti paskutinį pranešimą"
+
+#: ../ui/properties-dialog.glade.h:31
+msgctxt "yes"
+msgid "_Update the mail status"
+msgstr "A_tnaujinti pašto būseną"
+
+#: ../ui/properties-dialog.glade.h:32
+msgctxt "yes"
+msgid "message popups tab|_Never"
+msgstr "Laiškų iššokančių langų kortelės|_Niekada"
