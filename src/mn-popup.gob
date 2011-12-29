@@ -136,7 +136,7 @@ class MN:Popup from Notify:Notification
       if (*body->str)
 	g_string_append_c(body, '\n');
 
-      g_string_append_printf(body, "<span weight=\"bold\">%s</span>", name);
+      g_string_append_printf(body, "<b>%s</b>", name);
 
       escaped = g_markup_escape_text(value, -1);
       g_string_append_printf(body, " %s", escaped);
