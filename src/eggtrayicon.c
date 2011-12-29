@@ -326,6 +326,9 @@ egg_tray_icon_update_manager_window (EggTrayIcon *icon,
 
   xdisplay = GDK_DISPLAY_XDISPLAY (gtk_widget_get_display (GTK_WIDGET (icon)));
 
+  if (!xdisplay)
+    return;
+
   XGrabServer (xdisplay);
 
   icon->manager_window = XGetSelectionOwner (xdisplay,
