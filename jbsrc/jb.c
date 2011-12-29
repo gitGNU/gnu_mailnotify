@@ -710,4 +710,4 @@ jb_package_add_resources (void)
     }
 }
 
-JB_MAIN("mail-notification", "5.4", "Mail Notification")
+JB_MAIN("mail-notification", "6.0-rc1", "Mail Notification")

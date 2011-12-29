@@ -39,12 +39,12 @@ class MN:About:Dialog from Gtk:About:Dialog
   init (self)
   {
     GtkAboutDialog *about = GTK_ABOUT_DIALOG(self);
-    static const char *authors[] = { "Jean-Yves Lefort <jylefort@brutele.be>", NULL };
-    static const char *documenters[] = { "Jean-Yves Lefort <jylefort@brutele.be>", NULL };
+    static const char *authors[] = { "Jean-Yves Lefort <jylefort@brutele.be>", "Stephen Kitt <steve@sk2.org>", NULL };
+    static const char *documenters[] = { "Jean-Yves Lefort <jylefort@brutele.be>", "Stephen Kitt <steve@sk2.org>", NULL };
     GdkPixbuf *logo;
 
     gtk_about_dialog_set_version(about, VERSION);
-    gtk_about_dialog_set_copyright(about, "Copyright \302\251 2003-2008 Jean-Yves Lefort");
+    gtk_about_dialog_set_copyright(about, "Copyright © 2003-2008 Jean-Yves Lefort\nCopyright © 2010-2011 Stephen Kitt");
     /* translators: header capitalization */
     gtk_about_dialog_set_comments(about, _("A Mail Notification Icon"));
     gtk_about_dialog_set_website(about, "http://www.nongnu.org/mailnotify");
