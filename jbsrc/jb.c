@@ -1,6 +1,7 @@
 /*
  * Mail Notification
  * Copyright (C) 2003-2008 Jean-Yves Lefort <jylefort@brutele.be>
+ * Copyright © 2011 Stephen Kitt <steve@sk2.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -464,7 +465,6 @@ jb_package_add_resources (void)
 			"MN:Dialog",
 			"MN:File:Chooser:Button",
 			"MN:Mail:Icon",
-			"MN:Mail:Icon:Widget",
 			"MN:Mailbox",
 			"MN:Mailbox:Properties",
 			"MN:Mailbox:Properties:Dialog",
@@ -482,8 +482,6 @@ jb_package_add_resources (void)
 			"MN:Standard:Message:View",
 			"MN:Test:Mailbox",
 			"MN:Text:Table",
-			"MN:Tooltips",
-			"eggtrayicon",
 			"mn-conf",
 			"mn-decls.h",
 			"mn-locked-callback",

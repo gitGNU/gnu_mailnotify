@@ -1,6 +1,7 @@
 /*
  * Mail Notification
  * Copyright (C) 2003-2008 Jean-Yves Lefort <jylefort@brutele.be>
+ * Copyright © 2011 Stephen Kitt <steve@sk2.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -182,7 +183,7 @@ class MN:Shell from G:Object
       {
 	/* do not recreate the icon after we destroy it */
 	g_signal_handlers_disconnect_by_func(self->icon, self_icon_destroy_h, self);
-	gtk_widget_destroy(GTK_WIDGET(self->icon));
+	//	gtk_widget_destroy(GTK_WIDGET(self->icon));
       }
 
     mn_g_object_null_unref(self->mailboxes);
@@ -564,20 +565,12 @@ class MN:Shell from G:Object
 	  count = 0;
 
 	mn_mail_icon_set_from_stock(self->icon, has_new ? MN_STOCK_MAIL : MN_STOCK_NO_MAIL);
-	mn_mail_icon_set_blinking(self->icon, blink);
 	mn_mail_icon_set_count(self->icon, count);
-	gtk_widget_show(GTK_WIDGET(self->icon));
+	gtk_status_icon_set_visible(GTK_STATUS_ICON(self->icon), TRUE);
       }
     else
       {
-	/* Re-create the icon as a regular gtk_widget_hide causes the
-	 * icon to remain visible on non-GNOME environments. We can't
-	 * use the callback self_icon_destroy_h here as it can cause an
-	 * endless recursion. */
-	g_signal_handlers_disconnect_by_func(self->icon, self_icon_destroy_h, self);
-	gtk_widget_destroy(GTK_WIDGET(self->icon));
-	self_init_icon_base(self);
-	mn_mail_icon_set_blinking(self->icon, FALSE);
+	gtk_status_icon_set_visible(GTK_STATUS_ICON(self->icon), FALSE);
       }
   }
 
@@ -728,7 +721,7 @@ class MN:Shell from G:Object
 	mn_mail_icon_set_tip_widget(self->icon, GTK_WIDGET(vbox));
       }
     else
-      mn_mail_icon_set_tip(self->icon, _("You have no new mail."));
+      mn_mail_icon_set_tip_string(self->icon, _("You have no new mail."));
   }
 
   private int

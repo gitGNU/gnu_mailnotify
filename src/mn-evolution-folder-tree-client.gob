@@ -19,6 +19,7 @@
 
 %headertop{
 #include <gtk/gtk.h>
+#include <gtk/gtkx.h>
 %}
 
 %privateheader{

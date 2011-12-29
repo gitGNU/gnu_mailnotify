@@ -1,12 +1,7 @@
 /*
- * Size adjustment code (size_allocate_h(), find_icon_size()) taken
- * from GtkStatusIcon,
- * Copyright (C) 2003 Sun Microsystems, Inc.
- * Copyright (C) 2005 Hans Breuer <hans@breuer.org>
- * Copyright (C) 2005 Novell, Inc.
- *
  * Mail Notification
  * Copyright (C) 2003-2008 Jean-Yves Lefort <jylefort@brutele.be>
+ * Copyright © 2011 Stephen Kitt <steve@sk2.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,12 +19,8 @@
  */
 
 %headertop{
+#include <gio/gio.h>
 #include <gtk/gtk.h>
-#include "eggtrayicon.h"
-%}
-
-%privateheader{
-#include "mn-tooltips.h"
 %}
 
 %{
@@ -37,16 +28,35 @@
 #include <gdk/gdkkeysyms.h>
 #include "mn-stock.h"
 #include "mn-util.h"
-#include "mn-mail-icon-widget.h"
 %}
 
-class MN:Mail:Icon from Egg:Tray:Icon
+class MN:Mail:Icon from Gtk:Status:Icon
 {
-  private MNTooltips *tooltips = {mn_tooltips_new()} unrefwith g_object_unref;
-  private GtkWidget *widget = {mn_mail_icon_widget_new()};
+  // Tooltip to be displayed
+  private const char *tip_string = NULL;
+  private GtkWidget *tip_widget = NULL;
+
+  // Numerable icon used in the status icon
+  private GIcon *icon;
 
   private char *stock_id destroywith g_free;
   private int size;
+
+  private int count;
+  property INT count (export)
+    set {
+      int count = g_value_get_int(VAL);
+      if (count != selfp->count) {
+	selfp->count = count;
+	if (selfp->icon != NULL) {
+	  gtk_numerable_icon_set_count(GTK_NUMERABLE_ICON(selfp->icon), count);
+	}
+	//	  self_update_image(self);
+      }
+    }
+    get {
+      g_value_set_int(VAL, selfp->count);
+    };
 
   private GtkWidget *menu = {gtk_menu_new()} destroywith gtk_widget_destroy;
   public GtkWidget *mail_reader_item;
@@ -54,8 +64,8 @@ class MN:Mail:Icon from Egg:Tray:Icon
   public GtkWidget *update_item;
   public GtkWidget *consider_new_mail_as_read_item;
 
-  signal (ACTION) private NONE (NONE)
-    void activate (self);
+  //  signal (ACTION) private NONE (NONE)
+  //    void activate (self);
   signal (ACTION) private NONE (NONE)
     void activate_mail_reader (self);
   signal (ACTION) private NONE (NONE)
@@ -114,149 +124,68 @@ class MN:Mail:Icon from Egg:Tray:Icon
     g_signal_connect_swapped(about_item, "activate", G_CALLBACK(self_activate_about), self);
     g_signal_connect_swapped(remove_item, "activate", G_CALLBACK(self_activate_remove), self);
 
-    gtk_widget_add_events(GTK_WIDGET(self), GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK);
+    //    gtk_widget_add_events(GTK_WIDGET(self), GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK);
 
-    gtk_container_add(GTK_CONTAINER(self), selfp->widget);
+    //    gtk_container_add(GTK_CONTAINER(self), selfp->widget);
 
     g_object_connect(self,
-		     "signal::button-press-event", self_button_press_event_h, self,
-		     "signal::button-release-event", self_button_release_event_h, self,
+		     "signal::popup-menu", self_popup_menu_event_h, self,
+		     "signal::query-tooltip", self_query_tooltip_event_h, self,
 		     NULL);
 
-    g_signal_connect(selfp->widget, "size-allocate", G_CALLBACK(self_size_allocate_h), self);
+    //    g_signal_connect(selfp->widget, "size-allocate", G_CALLBACK(self_size_allocate_h), self);
 
-    gtk_widget_show(selfp->widget);
-  }
+    gtk_status_icon_set_title(GTK_STATUS_ICON(self), _("Mail Notification"));
 
-  private void
-    size_allocate_h (GtkWidget *widget,
-		     GtkAllocation *allocation,
-		     gpointer user_data)
-  {
-    Self *self = user_data;
-    GtkOrientation orientation;
-    int size;
-
-    orientation = egg_tray_icon_get_orientation(EGG_TRAY_ICON(self));
-
-    if (orientation == GTK_ORIENTATION_HORIZONTAL)
-      size = allocation->height;
-    else
-      size = allocation->width;
-
-    if (selfp->size != size)
-      {
-	selfp->size = size;
-	self_update_image(self);
-      }
-  }
-
-  private GtkIconSize
-    find_icon_size (Gtk:Widget *widget (check null type), int pixel_size)
-  {
-    GdkScreen *screen;
-    GtkSettings *settings;
-    GtkIconSize s, size;
-    int w, h, d, dist;
-
-    screen = gtk_widget_get_screen(widget);
-
-    if (! screen)
-      return GTK_ICON_SIZE_MENU;
-
-    settings = gtk_settings_get_for_screen(screen);
-
-    dist = G_MAXINT;
-    size = GTK_ICON_SIZE_MENU;
-
-    for (s = GTK_ICON_SIZE_MENU; s < GTK_ICON_SIZE_DIALOG; s++)
-      {
-	if (gtk_icon_size_lookup_for_settings(settings, s, &w, &h)
-	    && w <= pixel_size
-	    && h <= pixel_size)
-	  {
-	    d = MAX(pixel_size - w, pixel_size - h);
-	    if (d < dist)
-	      {
-		dist = d;
-		size = s;
-	      }
-	  }
-      }
-
-    return size;
+    //    gtk_widget_show(selfp->widget);
+    gtk_status_icon_set_visible(GTK_STATUS_ICON(self), TRUE);
   }
 
   private void
     update_image (self)
   {
-    GtkIconSize size;
+    //    GtkIconSize size;
 
-    size = self_find_icon_size(selfp->widget, selfp->size);
-    mn_mail_icon_widget_set_from_stock(MN_MAIL_ICON_WIDGET(selfp->widget), selfp->stock_id, size);
+    //    size = self_find_icon_size(selfp, selfp->size);
+    //    mn_mail_icon_widget_set_from_stock(MN_MAIL_ICON_WIDGET(selfp->widget), selfp->stock_id, size);
+    if (selfp->icon != NULL)
+      g_object_unref(selfp->icon);
+    GIcon *tmpicon = g_themed_icon_new("mail-message-new"); //selfp->stock_id
+    selfp->icon = gtk_numerable_icon_new(tmpicon);
+    g_object_unref(tmpicon);
+    gtk_numerable_icon_set_count(GTK_NUMERABLE_ICON(selfp->icon), selfp->count);
+    gtk_status_icon_set_from_gicon(GTK_STATUS_ICON(self), selfp->icon);
   }
 
   private gboolean
-    button_press_event_h (GtkWidget *widget,
-			  GdkEventButton *event,
-			  gpointer user_data)
+    popup_menu_event_h (GtkStatusIcon *status,
+			guint button,
+			guint activate_time,
+			gpointer user_data)
   {
-    Self *self = user_data;
+    Self *self = status;
 
-    if (event->button == 1)
-      self_activate(self);
-    else if (event->button == 3)
-      {
-	gtk_menu_popup(GTK_MENU(selfp->menu), NULL, NULL, self_popup_menu_position_cb, self, event->button, event->time);
-	return TRUE;		/* do not propagate event */
-      }
-
-    return FALSE;		/* propagate event */
+    gtk_menu_popup(GTK_MENU(selfp->menu), NULL, NULL, gtk_status_icon_position_menu, self, button, activate_time);
+    return TRUE;		/* do not propagate event */
   }
 
   private gboolean
-    button_release_event_h (GtkWidget *widget,
-			    GdkEventButton *event,
-			    gpointer user_data)
+    query_tooltip_event_h (GtkStatusIcon *status,
+			   gint x,
+			   gint y,
+			   gboolean keyboard_mode,
+			   GtkTooltip *tooltip,
+			   gpointer user_data)
   {
-    Self *self = user_data;
-
-    if (event->button == 3)
-      {
-	gtk_menu_popdown(GTK_MENU(selfp->menu));
-	return TRUE;		/* do not propagate event */
-      }
-
-    return FALSE;		/* propagate event */
-  }
-
-  private void
-    popup_menu_position_cb (GtkMenu *menu,
-			    int *x,
-			    int *y,
-			    gboolean *push_in,
-			    gpointer user_data)
-  {
-    GtkWidget *widget = user_data;
-    GtkAllocation allocation;
-
-    gdk_window_get_origin(gtk_widget_get_window(widget), x, y);
-    gtk_widget_get_allocation(widget, &allocation);
-
-    *x += allocation.x;
-    *y += allocation.y;
-
-    if (*y > gdk_screen_get_height(gtk_widget_get_screen(widget)) / 2)
-      {
-	GtkRequisition req;
-
-	gtk_widget_size_request(GTK_WIDGET(menu), &req);
-	*y -= req.height;
-      }
-    else
-      *y += allocation.height;
-
-    *push_in = TRUE;
+    Self *self = status;
+    if (selfp->tip_string != NULL) {
+      gtk_tooltip_set_text(tooltip, selfp->tip_string);
+      return TRUE;
+    } else if (selfp->tip_widget != NULL) {
+      gtk_tooltip_set_custom(tooltip, selfp->tip_widget);
+      return TRUE;
+    }
+    return FALSE;
   }
 
   public void
@@ -269,32 +198,34 @@ class MN:Mail:Icon from Egg:Tray:Icon
   }
 
   public void
-    set_blinking (self, gboolean blinking)
+    set_tip_string (self, const char *tip)
   {
-    mn_mail_icon_widget_set_blinking(MN_MAIL_ICON_WIDGET(selfp->widget), blinking);
+    selfp->tip_string = tip;
+    if (selfp->tip_widget != NULL) {
+      GtkWidget *old = selfp->tip_widget;
+      selfp->tip_widget = NULL;
+      g_object_unref(old);
+    }
+    gtk_status_icon_set_has_tooltip(GTK_STATUS_ICON(self), TRUE);
   }
 
   public void
-    set_count (self, int count)
+    set_tip_widget (self, const GtkWidget *widget)
   {
-    mn_mail_icon_widget_set_count(MN_MAIL_ICON_WIDGET(selfp->widget), count);
+    selfp->tip_string = NULL;
+    if (selfp->tip_widget != NULL) {
+      GtkWidget *old = selfp->tip_widget;
+      selfp->tip_widget = NULL;
+      g_object_unref(old);
+    }
+    g_object_ref(widget);
+    selfp->tip_widget = widget;
+    gtk_status_icon_set_has_tooltip(GTK_STATUS_ICON(self), TRUE);
   }
 
-  public void
-    set_tip (self, const char *tip)
-  {
-    mn_tooltips_set_tip(selfp->tooltips, GTK_WIDGET(self), tip);
-  }
-
-  public void
-    set_tip_widget (self, Gtk:Widget *tip_widget)
-  {
-    mn_tooltips_set_tip_widget(selfp->tooltips, GTK_WIDGET(self), tip_widget);
-  }
-
-  public GtkWidget *
+  public GtkStatusIcon *
     new (void)
   {
-    return GTK_WIDGET(GET_NEW_VARG("title", _("Mail Notification"), NULL));
+    return GTK_STATUS_ICON(GET_NEW);
   }
 }
