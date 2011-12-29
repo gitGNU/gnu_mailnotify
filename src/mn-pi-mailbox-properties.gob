@@ -195,7 +195,7 @@ class MN:PI:Mailbox:Properties from MN:Authenticated:Mailbox:Properties (abstrac
     int i;
 
     for (i = 0; i < MN_PI_MAILBOX_N_CONNECTION_TYPES; i++)
-      gtk_widget_set_sensitive(self->port_spin[i], GTK_WIDGET_SENSITIVE(self->conn_radio[i]) && gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(self->conn_radio[i])));
+      gtk_widget_set_sensitive(self->port_spin[i], gtk_widget_get_sensitive(self->conn_radio[i]) && gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(self->conn_radio[i])));
 
     g_object_notify(G_OBJECT(self), "complete");
   }

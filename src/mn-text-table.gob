@@ -78,7 +78,7 @@ class MN:Text:Table from Gtk:Widget
 
   init (self)
   {
-    GTK_WIDGET_SET_FLAGS(self, GTK_NO_WINDOW);
+    gtk_widget_set_has_window(GTK_WIDGET(self), FALSE);
 
     g_object_connect(self,
 		     "swapped-signal::style-set", self_context_changed, self,
@@ -101,7 +101,7 @@ class MN:Text:Table from Gtk:Widget
     g_free(cell);
   }
 
-  override (Gtk:Widget) void
+  private void
     size_request (GtkWidget *widget, GtkRequisition *requisition)
   {
     Self *self = SELF(widget);
@@ -112,14 +112,38 @@ class MN:Text:Table from Gtk:Widget
     requisition->height = selfp->height;
   }
 
+  override (Gtk:Widget) void
+    get_preferred_width (GtkWidget *widget, gint *minimal_width, gint *natural_width)
+  {
+    GtkRequisition requisition;
+
+    self_size_request(widget, &requisition);
+
+    *minimal_width = *natural_width = requisition.width;
+  }
+
+  override (Gtk:Widget) void
+    get_preferred_height (GtkWidget *widget, gint *minimal_height, gint *natural_height)
+  {
+    GtkRequisition requisition;
+
+    self_size_request(widget, &requisition);
+
+    *minimal_height = *natural_height = requisition.height;
+  }
+
   override (Gtk:Widget) gboolean
-    expose_event (GtkWidget *widget, GdkEventExpose *event)
+    draw (GtkWidget *widget, cairo_t *cr)
   {
     Self *self = SELF(widget);
+    GtkAllocation allocation;
     int i;
-    int y = widget->allocation.y;
+    int y;
 
-    if (! GTK_WIDGET_DRAWABLE(widget))
+    gtk_widget_get_allocation(widget, &allocation);
+    y = 0;
+
+    if (! gtk_widget_is_drawable(widget))
       return FALSE;
 
     self_relayout(self);
@@ -128,7 +152,7 @@ class MN:Text:Table from Gtk:Widget
       {
 	Row *row = g_ptr_array_index(selfp->rows, i);
 	int j;
-	int x = widget->allocation.x;
+	int x = 0;
 	int column = 0;
 
 	MN_ARRAY_FOREACH(j, row->cells)
@@ -136,11 +160,10 @@ class MN:Text:Table from Gtk:Widget
 	    MNTextTableCell *cell = g_ptr_array_index(row->cells, j);
 
 	    if (cell->layout)
-	      gtk_paint_layout(widget->style,
-			       widget->window,
-			       GTK_WIDGET_STATE(widget),
+	      gtk_paint_layout(gtk_widget_get_style(widget),
+			       cr,
+			       gtk_widget_get_state_flags(widget),
 			       FALSE,
-			       &event->area,
 			       widget,
 			       NULL,
 			       x,

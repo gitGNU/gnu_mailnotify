@@ -26,8 +26,7 @@
 #include <gmodule.h>
 #include <glib/gi18n.h>
 #include <gobject/gvaluecollector.h>
-#include <gnome.h>
-#include <glade/glade.h>
+#include <libgnome/libgnome.h>
 #include "mn-util.h"
 #include "mn-mailboxes.h"
 #include "mn-shell.h"
@@ -303,49 +302,55 @@ mn_pixbuf_new (const char *filename)
   return pixbuf;
 }
 
-static GladeXML *
+static GtkBuilder *
 mn_glade_xml_new (const char *filename, const char *root, const char *domain)
 {
-  GladeXML *xml;
+  GtkBuilder *builder;
+  GError *err = NULL;
 
   g_return_val_if_fail(filename != NULL, NULL);
 
-  xml = glade_xml_new(filename, root, domain);
-  if (! xml)
-    mn_show_fatal_error_dialog(NULL, "Unable to load interface \"%s\".", filename);
+  builder = gtk_builder_new();
+  gtk_builder_set_translation_domain(builder, domain);
+  if (! gtk_builder_add_from_file(builder, filename, &err)) {
+    mn_show_fatal_error_dialog(NULL, "Unable to load interface \"%s\": %s.", filename, err->message);
+    g_error_free(err);
+    g_object_unref(builder);
+    return NULL;
+  }
 
-  return xml;
+  return builder;
 }
 
 static GtkWidget *
-mn_glade_xml_get_widget (GladeXML *xml, const char *widget_name)
+mn_glade_xml_get_widget (GtkBuilder *builder, const char *widget_name)
 {
   GtkWidget *widget;
 
-  g_return_val_if_fail(GLADE_IS_XML(xml), NULL);
+  g_return_val_if_fail(GTK_IS_BUILDER(builder), NULL);
   g_return_val_if_fail(widget_name != NULL, NULL);
 
-  widget = glade_xml_get_widget(xml, widget_name);
+  widget = GTK_WIDGET(gtk_builder_get_object(builder, widget_name));
   if (! widget)
-    mn_show_fatal_error_dialog(NULL, "Widget \"%s\" not found in interface \"%s\".", widget_name, xml->filename);
+    mn_show_fatal_error_dialog(NULL, "Widget \"%s\" not found in interface.", widget_name);
 
   return widget;
 }
 
 static void
-create_interface_connect_cb (const char *handler_name,
+create_interface_connect_cb (GtkBuilder *builder,
 			     GObject *object,
 			     const char *signal_name,
-			     const char *signal_data,
+			     const char *handler_name,
 			     GObject *connect_object,
-			     gboolean after,
+			     GConnectFlags flags,
 			     gpointer user_data)
 {
   static GModule *module = NULL;
   ContainerCreateInterfaceConnectInfo *info = user_data;
   char *cb_name;
   GCallback cb;
-  GConnectFlags flags;
+  GConnectFlags cflags;
 
   if (! module)
     {
@@ -359,11 +364,9 @@ create_interface_connect_cb (const char *handler_name,
     mn_show_fatal_error_dialog(NULL, "Signal handler \"%s\" not found.", cb_name);
   g_free(cb_name);
 
-  flags = G_CONNECT_SWAPPED;
-  if (after)
-    flags |= G_CONNECT_AFTER;
+  cflags = G_CONNECT_SWAPPED;
 
-  g_signal_connect_data(object, signal_name, cb, info->container, NULL, flags);
+  g_signal_connect_data(object, signal_name, cb, info->container, NULL, cflags);
 }
 
 void
@@ -373,7 +376,7 @@ mn_container_create_interface (GtkContainer *container,
 			       const char *callback_prefix,
 			       ...)
 {
-  GladeXML *xml;
+  GtkBuilder *xml;
   GtkWidget *child;
   ContainerCreateInterfaceConnectInfo info;
   va_list args;
@@ -387,14 +390,16 @@ mn_container_create_interface (GtkContainer *container,
   xml = mn_glade_xml_new(filename, child_name, NULL);
   child = mn_glade_xml_get_widget(xml, child_name);
 
-  if (GTK_IS_DIALOG(container))
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(container)->vbox), child, TRUE, TRUE, 0);
-  else
+  if (GTK_IS_DIALOG(container)) {
+    gtk_widget_unparent(child);
+    gtk_box_pack_start(GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(container))), child, TRUE, TRUE, 0);
+  } else {
     gtk_container_add(container, child);
+  }
 
   info.container = container;
   info.callback_prefix = callback_prefix;
-  glade_xml_signal_autoconnect_full(xml, create_interface_connect_cb, &info);
+  gtk_builder_connect_signals_full(xml, create_interface_connect_cb, &info);
 
   va_start(args, callback_prefix);
 
@@ -422,7 +427,7 @@ mn_widget_get_parent_window (GtkWidget *widget)
 
   toplevel = gtk_widget_get_toplevel(widget);
 
-  return GTK_WIDGET_TOPLEVEL(toplevel) ? GTK_WINDOW(toplevel) : NULL;
+  return gtk_widget_get_toplevel(toplevel) ? GTK_WINDOW(toplevel) : NULL;
 }
 
 static void
@@ -493,9 +498,11 @@ scrolled_window_drag_motion_h (GtkWidget *widget,
 			       gpointer user_data)
 {
   GtkAdjustment *adjustment;
+  GtkAllocation allocation;
 
+  gtk_widget_get_allocation(widget, &allocation);
   adjustment = gtk_scrolled_window_get_vadjustment(GTK_SCROLLED_WINDOW(widget));
-  gtk_adjustment_set_value(adjustment, (double) y / (widget->allocation.height - 2) * (adjustment->upper - adjustment->page_size));
+  gtk_adjustment_set_value(adjustment, (double) y / (allocation.height - 2) * (gtk_adjustment_get_upper(adjustment) - gtk_adjustment_get_page_size(adjustment)));
 
   return TRUE;			/* we're forcibly in a drop zone */
 }
@@ -562,7 +569,7 @@ drag_data_received_h (GtkWidget *widget,
 	MNMailbox *mailbox;
 
 	/* text/x-moz-url is encoded in UCS-2 but in format 8: broken */
-	if (selection_data->format != 8 || selection_data->length <= 0 || (selection_data->length % 2) != 0)
+	if (gtk_selection_data_get_format(selection_data) != 8 || gtk_selection_data_get_length(selection_data) <= 0 || (gtk_selection_data_get_length(selection_data) % 2) != 0)
 	  {
 	    mn_show_error_dialog(mn_widget_get_parent_window(widget),
 				 _("A drag and drop error has occurred"),
@@ -570,8 +577,8 @@ drag_data_received_h (GtkWidget *widget,
 	    return;
 	  }
 
-	char_data = (const guint16 *) selection_data->data;
-	char_len = selection_data->length / 2;
+	char_data = (const guint16 *) gtk_selection_data_get_data(selection_data);
+	char_len = gtk_selection_data_get_length(selection_data) / 2;
 
 	url = g_string_new(NULL);
 	for (i = 0; i < char_len && char_data[i] != '\n'; i++)
@@ -1322,7 +1329,7 @@ dialog_run_nonmodal_shutdown_loop (RunNonmodalInfo *info)
 }
 
 static void
-dialog_run_nonmodal_destroy_h (GtkObject *object, gpointer user_data)
+dialog_run_nonmodal_destroy_h (GtkWidget *object, gpointer user_data)
 {
   RunNonmodalInfo *info = user_data;
 
@@ -1375,7 +1382,7 @@ mn_dialog_run_nonmodal (GtkDialog *dialog)
 
   g_object_ref(dialog);
 
-  if (! GTK_WIDGET_VISIBLE(dialog))
+  if (! gtk_widget_get_visible(dialog))
     gtk_widget_show(GTK_WIDGET(dialog));
 
   g_object_connect(dialog,

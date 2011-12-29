@@ -497,7 +497,7 @@ class MN:Shell from G:Object
   }
 
   private void
-    icon_destroy_h (GtkObject *object, gpointer user_data)
+    icon_destroy_h (GtkWidget *object, gpointer user_data)
   {
     Self *self = user_data;
 

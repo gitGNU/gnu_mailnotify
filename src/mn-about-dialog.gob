@@ -30,8 +30,10 @@ class MN:About:Dialog from Gtk:About:Dialog
 {
   class_init (class)
   {
+#if 0
     gtk_about_dialog_set_email_hook(self_activate_link_cb, "mailto:", NULL);
     gtk_about_dialog_set_url_hook(self_activate_link_cb, NULL, NULL);
+#endif
   }
 
   init (self)

@@ -166,10 +166,9 @@ class MN:Autodetect:Mailbox:Properties from MN:Mailbox:Properties
 
     toplevel = gtk_widget_get_toplevel(GTK_WIDGET(button));
     /* translators: header capitalization */
-    selfp->chooser = gtk_file_chooser_dialog_new_with_backend(_("Select a File or Folder"),
+    selfp->chooser = gtk_file_chooser_dialog_new(_("Select a File or Folder"),
 							      GTK_WINDOW(toplevel),
 							      GTK_FILE_CHOOSER_ACTION_OPEN,
-							      "gnome-vfs",
 							      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
 							      GTK_STOCK_OPEN, 1,
 							      NULL);

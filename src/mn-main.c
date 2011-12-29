@@ -21,7 +21,7 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <glib/gi18n.h>
-#include <gnome.h>
+#include <libgnome/libgnome.h>
 #include <libgnomevfs/gnome-vfs.h>
 #include <libnotify/notify.h>
 #include <dbus/dbus-glib-lowlevel.h>
@@ -452,13 +452,15 @@ main (int argc, char **argv)
 
   gnome_program_init(PACKAGE,
 		     VERSION,
-		     LIBGNOMEUI_MODULE,
+		     LIBGNOME_MODULE,
 		     argc,
 		     argv,
 		     GNOME_PARAM_HUMAN_READABLE_NAME, _("Mail Notification"),
 		     GNOME_PROGRAM_STANDARD_PROPERTIES,
 		     GNOME_PARAM_GOPTION_CONTEXT, option_context,
 		     NULL);
+
+  gtk_init(&argc, &argv);
 
   if (arg_version)
     {
@@ -497,7 +499,9 @@ main (int argc, char **argv)
 	  if (! gnome_vfs_init())
 	    mn_show_fatal_error_dialog(NULL, _("Unable to initialize the GnomeVFS library."));
 
+#if 0
 	  gnome_authentication_manager_init();
+#endif
 
 	  /* must be called before init_gmime() */
 	  mn_conf_init();

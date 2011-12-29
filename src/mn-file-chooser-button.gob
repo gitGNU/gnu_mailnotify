@@ -38,7 +38,7 @@ typedef GtkFileChooserDialog *(*MNFileChooserButtonCreateDialogFunction) (gpoint
 
 %{
 #include <glib/gi18n.h>
-#include <gnome.h>
+#include <libgnome/libgnome.h>
 #include "mn-util.h"
 %}
 
@@ -127,7 +127,7 @@ class MN:File:Chooser:Button from Gtk:HBox
 	g_signal_connect(selfp->dialog, "response", G_CALLBACK(self_response_h), self);
       }
 
-    if (! GTK_WIDGET_VISIBLE(selfp->dialog))
+    if (! gtk_widget_get_visible(selfp->dialog))
       {
 	GtkWindow *parent;
 
@@ -211,6 +211,7 @@ class MN:File:Chooser:Button from Gtk:HBox
 
     GDK_THREADS_ENTER();
 
+#if 0
     if (results)
       {
 	GnomeVFSGetFileInfoResult *result = results->data;
@@ -242,6 +243,7 @@ class MN:File:Chooser:Button from Gtk:HBox
 	      }
 	  }
       }
+#endif
 
     selfp->async_handle = NULL;
     g_object_unref(self);

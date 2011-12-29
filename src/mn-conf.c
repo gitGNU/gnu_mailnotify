@@ -23,7 +23,7 @@
 #include <errno.h>
 #include <stdarg.h>
 #include <glib/gi18n.h>
-#include <gnome.h>
+#include <libgnome/libgnome.h>
 #include "mn-util.h"
 #include "mn-conf.h"
 #include "mn-shell.h"

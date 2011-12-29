@@ -91,7 +91,7 @@ class MN:Mail:Icon:Widget from Gtk:Widget
 
   init (self)
   {
-    GTK_WIDGET_SET_FLAGS(self, GTK_NO_WINDOW);
+    gtk_widget_set_has_window(GTK_WIDGET(self), FALSE);
 
     gtk_widget_set_name(GTK_WIDGET(self), "mn-mail-icon");
 
@@ -107,7 +107,7 @@ class MN:Mail:Icon:Widget from Gtk:Widget
     mn_source_clear(&selfp->blink_timeout_id);
   }
 
-  override (Gtk:Widget) void
+  private void
     size_request (GtkWidget *widget, GtkRequisition *requisition)
   {
     Self *self = SELF(widget);
@@ -129,12 +129,30 @@ class MN:Mail:Icon:Widget from Gtk:Widget
       }
   }
 
+  override (Gtk:Widget) void
+    get_preferred_width (GtkWidget *widget, gint *minimal_width, gint *natural_width)
+  {
+    GtkRequisition requisition;
+
+    self_size_request(widget, &requisition);
+    *minimal_width = *natural_width = requisition.width;
+  }
+
+  override (Gtk:Widget) void
+    get_preferred_height (GtkWidget *widget, gint *minimal_height, gint *natural_height)
+  {
+    GtkRequisition requisition;
+
+    self_size_request(widget, &requisition);
+    *minimal_height = *natural_height = requisition.height;
+  }
+
   override (Gtk:Widget) gboolean
-    expose_event (GtkWidget *widget, GdkEventExpose *event)
+    draw (GtkWidget *widget, cairo_t *cr)
   {
     Self *self = SELF(widget);
 
-    if (! GTK_WIDGET_DRAWABLE(widget) || ! selfp->stock_id)
+    if (! gtk_widget_is_drawable(widget) || ! selfp->stock_id)
       return FALSE;
 
     if (selfp->is_on)
@@ -142,23 +160,34 @@ class MN:Mail:Icon:Widget from Gtk:Widget
 	int x;
 	int y;
 	GdkRectangle image_area;
+	GtkAllocation allocation;
+	GtkRequisition requisition;
 
 	/* note: widget->requisition is the pixbuf size, see size_request() */
 
-	x = floor(widget->allocation.x + ((widget->allocation.width - widget->requisition.width) * ICON_XALIGN));
-	y = floor(widget->allocation.y + ((widget->allocation.height - widget->requisition.height) * ICON_YALIGN));
+	gtk_widget_get_allocation(widget, &allocation);
+	gtk_widget_get_requisition(widget, &requisition);
+
+	x = floor(allocation.x + ((allocation.width - requisition.width) * ICON_XALIGN));
+	y = floor(allocation.y + ((allocation.height - requisition.height) * ICON_YALIGN));
 
 	image_area.x = x;
 	image_area.y = y;
-	image_area.width = widget->requisition.width;
-	image_area.height = widget->requisition.height;
+	image_area.width = requisition.width;
+	image_area.height = requisition.height;
 
+#if 0
 	if (gdk_rectangle_intersect(&event->area, &image_area, &image_area))
+#endif
 	  {
 	    GdkPixbuf *pixbuf;
 
 	    pixbuf = self_render_icon(self);
+	    gdk_cairo_set_source_pixbuf(cr, pixbuf, image_area.x, image_area.y);
+	    cairo_move_to(cr, image_area.x - x, image_area.y - y);
+	    cairo_paint(cr);
 
+#if 0
 	    gdk_draw_pixbuf(widget->window,
 			    NULL,
 			    pixbuf,
@@ -171,6 +200,7 @@ class MN:Mail:Icon:Widget from Gtk:Widget
 			    GDK_RGB_DITHER_NORMAL,
 			    0,
 			    0);
+#endif
 
 	    g_object_unref(pixbuf);
 	  }
@@ -185,13 +215,16 @@ class MN:Mail:Icon:Widget from Gtk:Widget
 	int box_y;
 	int box_width;
 	int box_height;
+	GtkAllocation allocation;
+
+	gtk_widget_get_allocation(widget, &allocation);
 
 	if (! selfp->count_layout)
 	  {
 	    const char *size;
 	    char *markup;
 
-	    if (widget->allocation.height < 32)
+	    if (allocation.height < 32)
 	      size = "small";
 	    else
 	      size = "medium";
@@ -208,17 +241,16 @@ class MN:Mail:Icon:Widget from Gtk:Widget
 	box_width = count_rect.width + COUNT_BOX_XPAD * 2;
 	box_height = count_rect.height + COUNT_BOX_YPAD * 2;
 
-	box_x = widget->allocation.x + widget->allocation.width - box_width - COUNT_BOX_XMARGIN;
-	box_y = widget->allocation.y + widget->allocation.height - box_height - COUNT_BOX_YMARGIN;
+	box_x = allocation.x + allocation.width - box_width - COUNT_BOX_XMARGIN;
+	box_y = allocation.y + allocation.height - box_height - COUNT_BOX_YMARGIN;
 
 	count_x = box_x - count_rect.x + COUNT_BOX_XPAD;
 	count_y = box_y - count_rect.y + COUNT_BOX_YPAD;
 
-	gtk_paint_box(widget->style,
-		      widget->window,
-		      GTK_WIDGET_STATE(widget),
+	gtk_paint_box(gtk_widget_get_style(widget),
+		      cr,
+		      gtk_widget_get_state_flags(widget),
 		      GTK_SHADOW_OUT,
-		      &event->area,
 		      widget,
 		      NULL,
 		      box_x,
@@ -226,11 +258,10 @@ class MN:Mail:Icon:Widget from Gtk:Widget
 		      box_width,
 		      box_height);
 
-	gtk_paint_layout(widget->style,
-			 widget->window,
-			 GTK_WIDGET_STATE(widget),
+	gtk_paint_layout(gtk_widget_get_style(widget),
+			 cr,
+			 gtk_widget_get_state_flags(widget),
 			 FALSE,
-			 &event->area,
 			 widget,
 			 NULL,
 			 count_x,

@@ -238,11 +238,13 @@ class MN:Mail:Icon from Egg:Tray:Icon
 			    gpointer user_data)
   {
     GtkWidget *widget = user_data;
+    GtkAllocation allocation;
 
-    gdk_window_get_origin(widget->window, x, y);
+    gdk_window_get_origin(gtk_widget_get_window(widget), x, y);
+    gtk_widget_get_allocation(widget, &allocation);
 
-    *x += widget->allocation.x;
-    *y += widget->allocation.y;
+    *x += allocation.x;
+    *y += allocation.y;
 
     if (*y > gdk_screen_get_height(gtk_widget_get_screen(widget)) / 2)
       {
@@ -252,7 +254,7 @@ class MN:Mail:Icon from Egg:Tray:Icon
 	*y -= req.height;
       }
     else
-      *y += widget->allocation.height;
+      *y += allocation.height;
 
     *push_in = TRUE;
   }

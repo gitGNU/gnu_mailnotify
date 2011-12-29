@@ -76,7 +76,7 @@ typedef GError *(*MNMessageActionPerformCallback) (MNMessage *message, gpointer 
 %{
 #include <errno.h>
 #include <glib/gi18n.h>
-#include <gnome.h>
+#include <libgnome/libgnome.h>
 #include <libgnomevfs/gnome-vfs.h>
 #include "mn-conf.h"
 #include "mn-util.h"

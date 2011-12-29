@@ -147,7 +147,7 @@ class MN:Mailbox:Properties:Dialog from MN:Dialog
     MNMailboxProperties *properties;
 
     mn_container_create_interface(GTK_CONTAINER(self),
-				  PKGDATADIR G_DIR_SEPARATOR_S "mailbox-properties-dialog.glade",
+				  PKGDATADIR G_DIR_SEPARATOR_S "mailbox-properties-dialog.ui",
 				  "notebook",
 				  "mn_mailbox_properties_dialog_",
 				  "notebook", &self->notebook,
@@ -684,7 +684,7 @@ class MN:Mailbox:Properties:Dialog from MN:Dialog
   protected void
     entry_activate_h (self, GtkEntry *entry)
   {
-    if (GTK_WIDGET_IS_SENSITIVE(GTK_WINDOW(self)->default_widget))
+    if (gtk_widget_is_sensitive(gtk_window_get_default_widget(GTK_WINDOW(self))))
       gtk_window_activate_default(GTK_WINDOW(self));
     else
       {
@@ -707,9 +707,9 @@ class MN:Mailbox:Properties:Dialog from MN:Dialog
 	    if (elem->data == entry)
 	      break;
 
-	    if (GTK_WIDGET_MAPPED(elem->data)
-		&& GTK_WIDGET_VISIBLE(elem->data)
-		&& GTK_WIDGET_SENSITIVE(elem->data))
+	    if (gtk_widget_get_mapped(elem->data)
+		&& gtk_widget_get_visible(elem->data)
+		&& gtk_widget_get_sensitive(elem->data))
 	      next = elem->data;
 	  }
 	while (! next);

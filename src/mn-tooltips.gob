@@ -173,7 +173,13 @@ class MN:Tooltips from G:Object
   {
     if (! selfp->window)
       {
+	GtkStyleContext *ctx;
+
 	selfp->window = gtk_window_new(GTK_WINDOW_POPUP);
+
+	ctx = gtk_widget_get_style_context(GTK_WIDGET(selfp->window));
+	gtk_style_context_add_class(ctx, "tooltip");
+
 	self_update_screen(self, TRUE);
 	gtk_widget_set_app_paintable(selfp->window, TRUE);
 	gtk_window_set_resizable(GTK_WINDOW(selfp->window), FALSE);
@@ -181,7 +187,7 @@ class MN:Tooltips from G:Object
 	gtk_container_set_border_width(GTK_CONTAINER(selfp->window), selfp->border_width);
 
 	g_signal_connect_swapped(selfp->window,
-				 "expose-event",
+				 "draw",
 				 G_CALLBACK(self_paint_window),
 				 self);
 
@@ -214,7 +220,7 @@ class MN:Tooltips from G:Object
 
     if (selfp->active_data
 	&& selfp->active_data->widget == widget
-	&& GTK_WIDGET_DRAWABLE(selfp->active_data->widget))
+	&& gtk_widget_is_drawable(selfp->active_data->widget))
       {
 	if (data->tip_widget)
 	  g_object_unref(data->tip_widget);
@@ -285,22 +291,13 @@ class MN:Tooltips from G:Object
   }
 
   private gboolean
-    paint_window (self)
+    paint_window (self, cairo_t *cr)
   {
     GtkRequisition req;
 
-    gtk_widget_size_request(selfp->window, &req);
-    gtk_paint_flat_box(selfp->window->style,
-		       selfp->window->window,
-		       GTK_STATE_NORMAL,
-		       GTK_SHADOW_OUT,
-		       NULL,
-		       selfp->window,
-		       "tooltip",
-		       0,
-		       0,
-		       req.width,
-		       req.height);
+    gtk_widget_size_request(GTK_WIDGET(selfp->window), &req);
+    gtk_render_background(gtk_widget_get_style_context(GTK_WIDGET(selfp->window)),
+			  cr, 0, 0, req.width, req.height);
 
     return FALSE;
   }
@@ -319,10 +316,11 @@ class MN:Tooltips from G:Object
     gint monitor_num, px, py;
     GdkRectangle monitor;
     int screen_width;
+    GtkAllocation allocation;
 
     if (! selfp->window)
       self_force_window(self);
-    else if (GTK_WIDGET_VISIBLE(selfp->window))
+    else if (gtk_widget_get_visible(selfp->window))
       g_get_current_time(&selfp->last_popdown);
 
     gtk_widget_ensure_style(selfp->window);
@@ -338,7 +336,7 @@ class MN:Tooltips from G:Object
 
     data = selfp->active_data;
 
-    child = GTK_BIN(selfp->window)->child;
+    child = gtk_bin_get_child(GTK_BIN(selfp->window));
     if (child)
       gtk_container_remove(GTK_CONTAINER(selfp->window), child);
 
@@ -352,14 +350,16 @@ class MN:Tooltips from G:Object
     w = requisition.width;
     h = requisition.height;
 
-    gdk_window_get_origin(widget->window, &x, &y);
-    if (GTK_WIDGET_NO_WINDOW(widget))
+    gtk_widget_get_allocation(selfp->window, &allocation);
+
+    gdk_window_get_origin(gtk_widget_get_window(widget), &x, &y);
+    if (! gtk_widget_get_has_window(widget))
       {
-	x += widget->allocation.x;
-	y += widget->allocation.y;
+	x += allocation.x;
+	y += allocation.y;
       }
 
-    x += widget->allocation.width / 2;
+    x += allocation.width / 2;
 
     if (! keyboard_mode)
       gdk_window_get_pointer(gdk_screen_get_root_window(screen), &x, NULL, NULL);
@@ -380,11 +380,11 @@ class MN:Tooltips from G:Object
     else if (x < monitor.x)
       x = monitor.x;
 
-    if ((y + h + widget->allocation.height + 4) > monitor.y + monitor.height
+    if ((y + h + allocation.height + 4) > monitor.y + monitor.height
 	&& (y - 4) > monitor.y)
       y = y - h - 4;
     else
-      y = y + widget->allocation.height + 4;
+      y = y + allocation.height + 4;
 
     /*
      * The following block is not part of GTK+ and has been added to
@@ -420,7 +420,7 @@ class MN:Tooltips from G:Object
   {
     Self *self = SELF(data);
 
-    if (selfp->active_data && GTK_WIDGET_DRAWABLE(selfp->active_data->widget))
+    if (selfp->active_data && gtk_widget_is_drawable(selfp->active_data->widget))
       self_draw_tips(self);
 
     selfp->timeout_id = 0;
@@ -432,7 +432,7 @@ class MN:Tooltips from G:Object
   {
     if (selfp->window)
       {
-	if (GTK_WIDGET_VISIBLE(selfp->window))
+	if (gtk_widget_get_visible(selfp->window))
 	  g_get_current_time(&selfp->last_popdown);
 	gtk_widget_hide(selfp->window);
       }
@@ -449,7 +449,7 @@ class MN:Tooltips from G:Object
 	{
 	  TooltipsData *data = l->data;
 
-	  if (data->widget == widget && GTK_WIDGET_DRAWABLE(widget))
+	  if (data->widget == widget && gtk_widget_is_drawable(widget))
 	    {
 	      selfp->active_data = data;
 	      break;
@@ -519,7 +519,7 @@ class MN:Tooltips from G:Object
 
     if (GTK_IS_WINDOW(toplevel))
       {
-	GtkWidget *focus = GTK_WINDOW(toplevel)->focus_widget;
+	GtkWidget *focus = gtk_window_get_focus(GTK_WINDOW(toplevel));
 
 	g_object_set_data(G_OBJECT(toplevel), TOOLTIPS_KEYBOARD_MODE, GINT_TO_POINTER(TRUE));
 
@@ -535,7 +535,7 @@ class MN:Tooltips from G:Object
 
     if (GTK_IS_WINDOW(toplevel))
       {
-	GtkWidget *focus = GTK_WINDOW(toplevel)->focus_widget;
+	GtkWidget *focus = gtk_window_get_focus(GTK_WINDOW(toplevel));
 
 	if (focus)
 	  self_hide_tip(focus);
@@ -605,24 +605,26 @@ class MN:Tooltips from G:Object
 	    break;
 
 	  case GDK_ENTER_NOTIFY:
-	    if (! (GTK_IS_MENU_ITEM(widget) && GTK_MENU_ITEM(widget)->submenu))
+	    if (! (GTK_IS_MENU_ITEM(widget) && gtk_menu_item_get_submenu(GTK_MENU_ITEM(widget))))
 	      self_start_delay(self, widget);
 	    break;
 
 	  case GDK_LEAVE_NOTIFY:
 	    self_set_active_widget(self, NULL);
-	    selfp->use_sticky_delay = selfp->window && GTK_WIDGET_VISIBLE(selfp->window);
+	    selfp->use_sticky_delay = selfp->window && gtk_widget_get_visible(selfp->window);
 	    break;
 
 	  case GDK_MOTION_NOTIFY:
 	    /* Handle menu items specially ... pend popup for each motion
 	     * on other widgets, we ignore motion.
 	     */
-	    if (GTK_IS_MENU_ITEM(widget) && ! GTK_MENU_ITEM(widget)->submenu)
+	    if (GTK_IS_MENU_ITEM(widget) && ! gtk_menu_item_get_submenu(GTK_MENU_ITEM(widget)))
 	      {
 		/* Completely evil hack to make sure we get the LEAVE_NOTIFY
 		 */
+#if 0
 		GTK_PRIVATE_SET_FLAG(widget, GTK_LEAVE_PENDING);
+#endif
 		self_set_active_widget(self, NULL);
 		self_start_delay(self, widget);
 		break;

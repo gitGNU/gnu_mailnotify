@@ -84,7 +84,7 @@ class MN:Properties:Dialog from MN:Dialog
     GtkTreeSelection *selection;
 
     mn_container_create_interface(GTK_CONTAINER(self),
-				  PKGDATADIR G_DIR_SEPARATOR_S "properties-dialog.glade",
+				  PKGDATADIR G_DIR_SEPARATOR_S "properties-dialog.ui",
 				  "main_vbox",
 				  "mn_properties_dialog_",
 				  "notebook", &selfp->notebook,

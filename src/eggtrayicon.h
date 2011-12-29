@@ -23,10 +23,9 @@
 #ifndef __EGG_TRAY_ICON_H__
 #define __EGG_TRAY_ICON_H__
 
-#include <gtk/gtkplug.h>
-#ifdef GDK_WINDOWING_X11
+#include <gtk/gtk.h>
+#include <gtk/gtkx.h>
 #include <gdk/gdkx.h>
-#endif
 
 G_BEGIN_DECLS
 

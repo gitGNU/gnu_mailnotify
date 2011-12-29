@@ -18,7 +18,7 @@
  */
 
 %privateheader{
-#include <gtk/gtk.h>
+#include <gtk/gtkx.h>
 #include <libedataserver/eds-version.h>
 #if EDS_CHECK_VERSION(2,91,0)
 #include <mail/e-mail-session.h>
@@ -27,6 +27,7 @@
 
 %{
 #include <dbus/dbus.h>
+#include <gtk/gtkx.h>
 #include <libedataserver/eds-version.h>
 #if !EDS_CHECK_VERSION(2,29,0)
 #include <mail/mail-component.h>
@@ -81,7 +82,7 @@ class MN:Evolution:Folder:Tree:Server from G:Object
     selfp->tree = em_folder_tree_new_with_model(model);
 #endif
 
-    selfp->plug = gtk_plug_new((GdkNativeWindow) selfp->id);
+    selfp->plug = gtk_plug_new((Window) selfp->id);
     gtk_container_add(GTK_CONTAINER(selfp->plug), selfp->tree);
     gtk_widget_show_all(selfp->plug);
 
@@ -105,7 +106,7 @@ class MN:Evolution:Folder:Tree:Server from G:Object
   }
 
   private void
-    plug_destroy_h (GtkObject *object, gpointer user_data)
+    plug_destroy_h (GtkWidget *object, gpointer user_data)
   {
     Self *self = user_data;
     char *service;
