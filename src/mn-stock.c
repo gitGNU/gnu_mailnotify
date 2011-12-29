@@ -86,6 +86,13 @@ mn_stock_init (void)
 	  gtk_icon_source_set_icon_name(icon_source, icons[i].icon_name);
 	  gtk_icon_set_add_source(icon_set, icon_source);
 	  gtk_icon_source_free(icon_source);
+
+          /* Add a fallback icon */
+          icon_source = gtk_icon_source_new();
+          gtk_icon_source_set_icon_name(icon_source, "mail-notification");
+          gtk_icon_source_set_state_wildcarded(icon_source, TRUE);
+          gtk_icon_set_add_source(icon_set, icon_source);
+          gtk_icon_source_free(icon_source);
 	}
       else if (icons[i].source_stock_id)
 	{
