@@ -248,7 +248,7 @@ class MN:Evolution:Server from G:Object
 	    CamelMessageInfo *info = summary->pdata[i];
 #endif
 
-	    if ((camel_message_info_flags(info) & CAMEL_MESSAGE_SEEN) == 0)
+	    if ((camel_message_info_flags(info) & (CAMEL_MESSAGE_SEEN | CAMEL_MESSAGE_JUNK)) == 0)
 	      g_ptr_array_add(*ret, self_camel_message_info_to_dbus_struct(info));
 	  }
 
