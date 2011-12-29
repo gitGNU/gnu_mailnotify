@@ -165,6 +165,7 @@ jb_package_configure (void)
 
   jb_require_packages("GNOME", "gnome", "glib-2.0 >= 2.14 gthread-2.0 gconf-2.0 >= 2.4.0 gtk+-2.0 >= 2.12 libgnomeui-2.0 >= 2.14.0 gnome-vfs-2.0 libglade-2.0 libxml-2.0 libnotify >= 0.4.1");
   jb_require_packages("D-Bus", "dbus", "dbus-glib-1");
+  jb_require_packages("X11", "x11", "x11");
 
   jb_check_packages_for_options("GMime", "gmime", "gmime-2.4",
 				"hotmail",
@@ -448,6 +449,7 @@ jb_package_add_resources (void)
   jb_compile_options_add_package(object->compile_options, "gettext");
   jb_compile_options_add_package(object->compile_options, "gnome");
   jb_compile_options_add_package(object->compile_options, "dbus");
+  jb_compile_options_add_package(object->compile_options, "x11");
 
   jb_group_add_dbus_interface(group,
 			      "org.gnome.MailNotification",
