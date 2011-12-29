@@ -98,10 +98,10 @@ class MN:Evolution:Server from G:Object
     info = g_new0(FolderInfo, 1);
     info->uri = g_strdup(uri);
     info->folder = folder;
-    camel_object_ref(folder);
+    g_object_ref(folder);
 
     /* uncache the folder when it is deleted */
-    camel_object_hook_event(folder, "deleted", self_folder_deleted_cb, info);
+    g_signal_connect(folder, "deleted", G_CALLBACK(self_folder_deleted_cb), info);
 
     g_hash_table_replace(folders, info->uri, info);
   }
@@ -109,8 +109,8 @@ class MN:Evolution:Server from G:Object
   private void
     folder_info_free (FolderInfo *info (check null))
   {
-    camel_object_unhook_event(info->folder, "deleted", self_folder_deleted_cb, info);
-    camel_object_unref(info->folder);
+    g_signal_handlers_disconnect_by_func(info->folder, self_folder_deleted_cb, info);
+    g_object_unref(info->folder);
     g_free(info->uri);
     g_free(info);
   }
@@ -140,7 +140,7 @@ class MN:Evolution:Server from G:Object
 	if (info)
 	  {
 	    folder = info->folder;
-	    camel_object_ref(folder);
+	    g_object_ref(folder);
 	  }
       }
     else
@@ -253,7 +253,7 @@ class MN:Evolution:Server from G:Object
 	  }
 
 	camel_folder_free_summary(folder, summary);
-	camel_object_unref(folder);
+	g_object_unref(folder);
       }
 
     GDK_THREADS_LEAVE();
@@ -275,7 +275,7 @@ class MN:Evolution:Server from G:Object
     if (folder)
       {
 	*ret = g_strdup(camel_folder_get_name(folder));
-	camel_object_unref(folder);
+	g_object_unref(folder);
       }
 
     GDK_THREADS_LEAVE();
@@ -321,7 +321,7 @@ class MN:Evolution:Server from G:Object
 	gtk_widget_show(((EMMessageBrowser *) browser)->window);
 #endif
 
-	camel_object_unref(folder);
+	g_object_unref(folder);
       }
 
     GDK_THREADS_LEAVE();
@@ -345,7 +345,7 @@ class MN:Evolution:Server from G:Object
     if (folder)
       {
 	status = camel_folder_set_message_flags(folder, message_uid, flags, flags);
-	camel_object_unref(folder);
+	g_object_unref(folder);
 
 	if (! status)
 	  g_set_error(err,
