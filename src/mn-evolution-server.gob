@@ -36,7 +36,9 @@
 #include <mail/em-message-browser.h>
 #endif
 #include <mail/em-utils.h>
+#if !EDS_CHECK_VERSION(2,91,0)
 #include <mail/mail-session.h>
+#endif
 #include <mail/mail-tools.h>
 #include "mn-evolution.h"
 #include "mn-evolution-folder-tree-server.h"
@@ -148,7 +150,15 @@ class MN:Evolution:Server from G:Object
 
     if (! folder)
       {
+#if EDS_CHECK_VERSION(2,91,0)
+	static EMailSession * session = NULL;
+	if (!session)
+	  session = e_mail_session_new();
+
+	folder = e_mail_session_uri_to_folder_sync(session, uri, 0, NULL, NULL);
+#else
 	folder = mail_tool_uri_to_folder(uri, 0, NULL);
+#endif
 	if (folder)
 	  self_cache_folder(uri, folder);
 	else
@@ -274,7 +284,11 @@ class MN:Evolution:Server from G:Object
     folder = self_lookup_folder(folder_uri, err);
     if (folder)
       {
+#if EDS_CHECK_VERSION(3,1,0)
+	*ret = g_strdup(camel_folder_get_display_name(folder));
+#else
 	*ret = g_strdup(camel_folder_get_name(folder));
+#endif
 	g_object_unref(folder);
       }
 
@@ -304,8 +318,12 @@ class MN:Evolution:Server from G:Object
 	shell = e_shell_get_default();
 	shell_backend = e_shell_get_backend_by_name(shell, "mail");
 
-	browser = e_mail_browser_new(shell_backend);
+	browser = e_mail_browser_new(E_MAIL_BACKEND(shell_backend));
+#if EDS_CHECK_VERSION(3,1,0)
+	e_mail_reader_set_folder(E_MAIL_READER(browser), folder);
+#else
 	e_mail_reader_set_folder(E_MAIL_READER(browser), folder, folder_uri);
+#endif
 	e_mail_reader_set_message(E_MAIL_READER(browser), message_uid);
 	gtk_widget_show(browser);
 #else

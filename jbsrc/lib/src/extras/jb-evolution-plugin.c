@@ -41,7 +41,7 @@ jb_evolution_plugin_check (const char *minversion)
   if (! minversion)
     minversion = "2.12";
 
-  packages = g_strdup_printf("evolution-plugin >= %s", minversion);
+  packages = g_strdup_printf("evolution-plugin-3.0 >= %s", minversion);
   result = jb_check_packages("Evolution", "evolution-plugin", packages);
   g_free(packages);
 
@@ -53,7 +53,7 @@ jb_evolution_plugin_check (const char *minversion)
       char *plugindir;
 
       jb_message_checking("for the Evolution plugin directory");
-      plugindir = jb_get_package_variable("evolution-plugin", "plugindir");
+      plugindir = jb_get_package_variable("evolution-plugin-3.0", "plugindir");
       jb_message_result_string(plugindir ? plugindir : "not found");
 
       if (! plugindir)
